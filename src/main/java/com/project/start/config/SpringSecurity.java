@@ -37,10 +37,11 @@ public class SpringSecurity {
                                 .requestMatchers("/searchinstitution/**").permitAll()
                                 .requestMatchers("/confirm-account/**").permitAll()
                                 .requestMatchers("/matchme/**").permitAll()
+                                .requestMatchers("/programs/**").permitAll()
                                 .requestMatchers("/institutions/**").permitAll()
                                 .requestMatchers("/ratings/**").permitAll()
                                 .requestMatchers("/users/**").hasRole("ADMIN")
-                               
+                                
                                
                 ).formLogin(
                         form -> form

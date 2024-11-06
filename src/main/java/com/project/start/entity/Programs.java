@@ -1,14 +1,11 @@
-package com.project.start.dto;
-
-
-
-import org.springframework.data.annotation.Id;
+package com.project.start.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +15,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProgramsDto {
+@Entity
+@Table(name="programs")
+public class Programs {
 	
-	   @Id
+	  private static final long serialVersionUID = 1L;
+
+	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long programid;
 
@@ -52,7 +53,5 @@ public class ProgramsDto {
 		public void setIstitutionName(String istitutionName) {
 			IstitutionName = istitutionName;
 		}
-	
-	
 
 }

@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.project.start.dto.ProgramsDto;
 import com.project.start.dto.UserDto;
 import com.project.start.entity.Institution;
+import com.project.start.entity.Programs;
 import com.project.start.entity.User;
+import com.project.start.service.ProgramService;
 import com.project.start.service.SearchInstitutionService;
 import com.project.start.service.UserService;
 
@@ -27,6 +31,7 @@ public class AuthController {
 
     private UserService userService;
     private SearchInstitutionService searchInstitutionService;
+    private ProgramService programService;
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -127,7 +132,7 @@ public class AuthController {
         return "search_result";
     }
     
-    @GetMapping("/searchInt")
+    @PostMapping("/searchinstitution/searchInt")
     public String home(Institution institution, Model model, String keyword) {
     	
         if (keyword != null) {
@@ -137,6 +142,8 @@ public class AuthController {
             List<Institution> list = searchInstitutionService.getAllInstitution();
             model.addAttribute("list", list);
         }
-        return "search_result";
+        return "searchinstitution";
     }
+    
+    
 }

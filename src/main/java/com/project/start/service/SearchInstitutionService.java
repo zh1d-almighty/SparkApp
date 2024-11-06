@@ -7,7 +7,6 @@ import com.project.start.repository.SearchInstitutionRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class SearchInstitutionService {
 	
 	 private SearchInstitutionRepository searchInstitutionRepository;

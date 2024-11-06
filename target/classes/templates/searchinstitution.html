@@ -199,24 +199,21 @@
             <div class="card">
                 
                 <div class="card-body">
-                     <form method="get" role="form" th:action="@{/searchInt}">
+                     <form method="post" role="form" th:action="@{/searchinstitution/searchInt}" th:object="${institutions}">
                         <div class="mb-3">
                             <label for="keyword" class="control-label">Search for Institution *</label>
-                            <input th:value="${keyword}" type="search"
-                                   id="keyword"
-                                   name="keyword"
+                            <input  type="text"
+                                   id="Institutionname"
+                                   name="Institutionname"
                                    class="form-control"
                                    placeholder="Search for Institution"
                                    
                             />
                         </div>
 
-                        
-
                         <div class="mb-3">
                             <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Search</button>
                       
-                           
                         </div>
                     </form>
                <div class="container" >

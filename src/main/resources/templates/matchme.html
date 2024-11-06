@@ -9,6 +9,8 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <style>
+          
+         
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -127,6 +129,23 @@
   background: #ff6600;
   color: white;
 }
+label {
+ display: inline-block;
+ margin-bottom: 5px;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-group {
+  padding: 5px;
+  width: 50%;
+}
+
+.form-group input {
+  width: 100%;
+}
 </style>
 </head>
 <body >
@@ -191,7 +210,7 @@
 
 <div class="container" >
     <div class="row" style="margin-top: 85px;">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-6 offset-md-3">
             <div th:if="${param.error}">
                 <div class="alert alert-danger">Invalid Email and Password.</div>
             </div>
@@ -199,35 +218,121 @@
                 <div class="alert alert-success">You have been logged out.</div>
             </div>
             <div class="card">
-                
+                <h1>Match Me</h1>
                 <div class="card-body">
                     <form
                             method="post"
-                            th:action="@{/login}"
+                            th:action="@{/matchme}"
                             class="form-horizontal"
                             role="form"
                     >
-                        <div class="mb-3">
-                            <label for="username" class="control-label">Subject *</label>
-                            <input type="text"
-                                   id="subject"
-                                   name="subject"
-                                   class="form-control"
-                                   placeholder="Email"
-                            />
-                        </div>
-
                         
+			                  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject"  class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level" class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+								  <div class="form-row">
+								    <div class="form-group">
+								      <label for="subject">Subject</label>
+								      <input id="subject" name="subject" class="form-control" type="text">
+								    </div>
+								    <div class="form-group">
+								      <label for="level">Level</label>
+								      <input id="level" name="level"class="form-control" type="text">
+								    </div>
+								  </div>
+							  </form>
+						             
+						       
                         <div class="mb-3">
-                            <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Login</button>
-                              <span><a href="/" th:href="@{/forgotpassword}">Forgot Password?</a></span>
-                         
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        <br>
+                            <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Match Me</button>
+                             
+                        </div>     
+		       
+		        </div>
+		        
+		        </form>
     </div>
+</div>
+<div></div>
+</div></div>
 </div>
 <div class="container">
  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
