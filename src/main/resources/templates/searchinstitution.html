@@ -8,8 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <style>
-.fa {
+<style>
+        /* Social Media Icons */
+        .fa {
+            padding: 10px;
+            font-size: 24px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+       
+
+        .fa {
   padding: 20px;
   font-size: 30px;
   width: 50px;
@@ -17,255 +31,563 @@
   text-decoration: none;
   margin: 5px 2px;
 }
-
+ 
 .fa:hover {
     opacity: 0.7;
 }
+ 
+.socialIcon{
+    display: flex;
+    justify-content: center;
+}
 
+.socialIcon a{
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+}
 .fa-facebook {
   background: #3B5998;
   color: white;
 }
-
+ 
 .fa-twitter {
   background: #55ACEE;
   color: white;
 }
-
+ 
 .fa-google {
   background: #dd4b39;
   color: white;
 }
-
+ 
 .fa-linkedin {
   background: #007bb5;
   color: white;
 }
-
+ 
 .fa-youtube {
   background: #bb0000;
   color: white;
 }
-
+ 
 .fa-instagram {
   background: #125688;
   color: white;
 }
-
+ 
 .fa-pinterest {
   background: #cb2027;
   color: white;
 }
-
+ 
 .fa-snapchat-ghost {
   background: #fffc00;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
+ 
 .fa-skype {
   background: #00aff0;
   color: white;
 }
-
+ 
 .fa-android {
   background: #a4c639;
   color: white;
 }
-
+ 
 .fa-dribbble {
   background: #ea4c89;
   color: white;
 }
-
+ 
 .fa-vimeo {
   background: #45bbff;
   color: white;
 }
-
+ 
 .fa-tumblr {
   background: #2c4762;
   color: white;
 }
-
+ 
 .fa-vine {
   background: #00b489;
   color: white;
 }
-
+ 
 .fa-foursquare {
   background: #45bbff;
   color: white;
 }
-
+ 
 .fa-stumbleupon {
   background: #eb4924;
   color: white;
 }
-
+ 
 .fa-flickr {
   background: #f40083;
   color: white;
 }
-
+ 
 .fa-yahoo {
   background: #430297;
   color: white;
 }
-
+ 
 .fa-soundcloud {
   background: #ff5500;
   color: white;
 }
-
+ 
 .fa-reddit {
   background: #ff5700;
   color: white;
 }
-
+ 
 .fa-rss {
   background: #ff6600;
   color: white;
 }
+
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('search-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            // Get input values
+            const keywords = document.getElementById('search-keywords').value.toLowerCase();
+            const location = document.getElementById('search-location').value.toLowerCase();
+            const institutionType = document.getElementById('institution-type').value.toLowerCase();
+            const programDuration = document.getElementById('program-duration').value.toLowerCase();
+            const tuitionFeeRange = document.getElementById('tuition-fee-range').value;
+            const learningPreference = document.getElementById('learning-preference').value.toLowerCase();
+
+            // Mock Data - Replace with real data
+            const institutions = [
+                {
+                    name: "University of Cape Town (UCT)",
+                    location: "cape town, south africa",
+                    description: "A wide range of undergraduate and postgraduate programs across various faculties, including Humanities, Law, Commerce, Science, Engineering, and Health Sciences.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "50001-100000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "uct-logo.png"
+                },
+                {
+                    name: "University of the Witwatersrand (Wits)",
+                    location: "johannesburg, south africa",
+                    description: "Business Admin, Marketing, Economics; Admission: NSC with bachelor's pass, NBT scores.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "0-50000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "wits-logo.png"
+                },
+                {
+                    name: "Stellenbosch University",
+                    location: "Stellenbosch, South Africa",
+                    description: "NSC with a bachelor's pass, language proficiency; Programs: Nursing, Health Sciences",
+                    type: "Public",
+                    duration: "Full-time",
+                    feeRange: "50001-100000",
+                    preference: "Online",
+                    rating: "★★★★☆",
+                    logo: "stellenbosch-logo.png"
+                },
+                {
+                    name: "University of Pretoria (UP)",
+                    location: "Pretoria, South Africa",
+                    description: "NSC with a bachelor's pass, Maths and Science recommended; Programs: Engineering, Architecture",
+                    type: "Public",
+                    duration: "Full-time",
+                    feeRange: "100001-200000",
+                    preference: "In-person",
+                    rating: "★★★★★",
+                    logo: "up-logo.png"
+                },
+                {
+                    name: "University of KwaZulu-Natal (UKZN)",
+                    location: "Durban, South Africa",
+                    description: "NSC with a bachelor's pass, Life Sciences, Math; Programs: Psychology, Sociology, Philosophy",
+                    type: "Public",
+                    duration: "Full-time",
+                    feeRange: "50001-100000",
+                    preference: "Blended",
+                    rating: "★★★★☆",
+                    logo: "ukzn-logo.png"
+                },
+                {
+                    name: "University of Johannesburg",
+                    location: "Johannesburg, South Africa",
+                    description: "A comprehensive university offering a wide range of undergraduate and postgraduate programs in fields such as Engineering, Humanities, and Social Sciences.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "100001-200000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "uj-logo.png"
+                },
+                {
+                    name: "Rhodes University",
+                    location: "Grahamstown, South Africa",
+                    description: "A prestigious university known for its strong emphasis on research and creative fields such as Arts, Media Studies, and Environmental Sciences.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "100001-200000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "ru-logo.png"
+                },
+                {
+                    name: "University of the Western Cape",
+                    location: "Cape Town, South Africa",
+                    description: "Offering a diverse range of programs with a focus on Social Sciences, Law, and Environmental Studies, the university is committed to producing graduates with a sense of social responsibility.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "0-50000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "uwc-logo.png"
+                },
+                {
+                    name: "Nelson Mandela University",
+                    location: "East London, South Africa",
+                    description: "A well-established institution offering undergraduate and postgraduate courses with a focus on Education, Early Childhood Development, and Health Sciences.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "0-50000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "nmu-logo.png"
+                },
+                {
+                    name: "University of the Free State",
+                    location: "Bloemfontein, South Africa",
+                    description: "A vibrant university offering programs in Political Science, International Relations, and various Humanities fields, with an emphasis on cultural exchange and social awareness.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "50001-100000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "ufs-logo.png"
+                },
+                {
+                    name: "North-West University",
+                    location: "Bela Bela, South Africa",
+                    description: "Known for its strong academic programs in Law, Criminal Justice, and Social Sciences, with a dedicated focus on producing leaders in various fields.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "0-50000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "nwu-logo.png"
+                },
+                {
+                    name: "University of Limpopo",
+                    location: "Tzaneen, South Africa",
+                    description: "A university with a focus on Journalism, Communications, and Rural Development, providing students with the skills necessary to address challenges in both urban and rural contexts.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "50001-100000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "ul-logo.png"
+                },
+                {
+                    name: "Tshwane University of Technology",
+                    location: "Pretoria, South Africa",
+                    description: "Offering cutting-edge programs in Information Technology, Cybersecurity, and Engineering, the university is known for its technological advancements and hands-on learning approach.",
+                    type: "public",
+                    duration: "part-time",
+                    feeRange: "50001-100000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "tut-logo.png"
+                },
+                {
+                    name: "University of Zululand",
+                    location: "Durban, South Africa",
+                    description: "A dynamic university offering courses in Literature, Creative Writing, and Arts, with an emphasis on nurturing creative talent and literary skills.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "0-50000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "unizulu-logo.png"
+                },
+                {
+                    name: "Walter Sisulu University",
+                    location: "Port Elizabeth, South Africa",
+                    description: "A university committed to sustainability, offering programs in Environmental Science and Sustainability, with a focus on eco-conscious practices and green initiatives.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "0-50000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "wsu-logo.png"
+                },
+                {
+                    name: "University of Venda",
+                    location: "Venda, South Africa",
+                    description: "Offering degrees in Finance, Accounting, and Business Management, the University of Venda prepares students for careers in finance and corporate sectors.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "50001-100000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "univen-logo.png"
+                },
+                {
+                    name: "Cape Peninsula University of Technology",
+                    location: "Cape Town, South Africa",
+                    description: "A university with strong programs in the Performing Arts, Music, and Creative Fields, CPUT is known for its modern facilities and a vibrant arts community.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "100001-200000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "cput-logo.png"
+                },
+                {
+                    name: "Durban University of Technology",
+                    location: "Durban, South Africa",
+                    description: "With a strong focus on technology and innovation, DUT offers programs in Software Engineering, Data Science, and other tech-related fields, preparing students for the future.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "100001-200000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "dut-logo.png"
+                },
+                {
+                    name: "Mangosuthu University of Technology",
+                    location: "Durban, South Africa",
+                    description: "Known for its programs in History and Anthropology, the university fosters a deep understanding of cultural heritage and social change.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "50001-100000",
+                    preference: "in-person",
+                    rating: "★★★☆☆",
+                    logo: "mut-logo.png"
+                },
+                {
+                    name: "Vaal University of Technology",
+                    location: "Vaal, South Africa",
+                    description: "VUT offers a comprehensive range of programs in International Business, Economics, and Management, with a strong focus on global perspectives and business strategies.",
+                    type: "public",
+                    duration: "full-time",
+                    feeRange: "100001-200000",
+                    preference: "in-person",
+                    rating: "★★★★☆",
+                    logo: "vut-logo.png"
+                }
+];
+
+
+            // Filter institutions based on search criteria
+            const filteredInstitutions = institutions.filter(institution => {
+                return (
+                    (keywords === "" || institution.name.toLowerCase().includes(keywords) || institution.description.toLowerCase().includes(keywords)) &&
+                    (location === "" || institution.location.toLowerCase().includes(location)) &&
+                    (institutionType === "" || institution.type.toLowerCase() === institutionType) &&
+                    (programDuration === "" || institution.duration.toLowerCase() === programDuration) &&
+                    (tuitionFeeRange === "" || institution.feeRange === tuitionFeeRange) &&
+                    (learningPreference === "" || institution.preference.toLowerCase() === learningPreference)
+                );
+            });
+
+            // Display results
+            const resultsList = document.querySelector('.results-list');
+            resultsList.innerHTML = ""; // Clear previous results
+
+            if (filteredInstitutions.length > 0) {
+                filteredInstitutions.forEach(institution => {
+                    const resultItem = document.createElement('div');
+                    resultItem.classList.add('result-item');
+                    resultItem.style.padding = '20px';
+                    resultItem.style.backgroundColor = '#fff';
+                    resultItem.style.marginBottom = '20px';
+                    resultItem.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+
+                    resultItem.innerHTML = `
+                        <img src="${institution.logo}" alt="${institution.name}" style="width: 50px; float: left; margin-right: 20px;">
+                        <h4>${institution.name}</h4>
+                        <p>Location: ${institution.location}</p>
+                        <p>${institution.description}</p>
+                        <p>User Rating: ${institution.rating}</p>
+                    `;
+
+                    resultsList.appendChild(resultItem);
+                });
+            } else {
+                const noResult = document.createElement('p');
+                noResult.textContent = "No institutions found matching your criteria.";
+                resultsList.appendChild(noResult);
+            }
+        });
+
+        document.getElementById('clear-button').addEventListener('click', () => {
+            // Clear all input fields
+            document.getElementById('search-keywords').value = "";
+            document.getElementById('search-location').value = "";
+            document.getElementById('institution-type').value = "";
+            document.getElementById('program-duration').value = "";
+            document.getElementById('tuition-fee-range').value = "";
+            document.getElementById('learning-preference').value = "";
+           
+            // Clear search results
+            const resultsList = document.querySelector('.results-list');
+            resultsList.innerHTML = "";
+        });
+    });
+</script>
+
 </head>
 <body >
 <br>
 <br>
 <br>
 <div class="container">
- <div class="row">
- <br><br>
-  		<div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
-  		<div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
-   
-    <h4 style="margin-right: 85px;" >SparkEd "ignites the spark of Higher Education"</h4></div>
-    <div class="col-sm-2"></div>
-</div>
-</div>
-<div class="container">
-</div>
-<div class="container">
+<div class="row">
+<br><br>
+<div class="col-sm-4"> 
+    <img class="LogoSparked" src="@{/images/logo.png}" alt=" 123" style="height: 300px; width: 300px; float: left; border-radius: 10px; background-color: #ffff;" ></div>
 
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">SparkEd</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
-            
-                 <li class="nav-item">
-                    <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/aboutus}">About us </a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">Match Me</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/searchinstitution}">Search Institution</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/register}">Resources</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/programs}">Programs</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/ratings}">Ratings</a>
-                </li>
-              
-                   <li class="nav-item">
-                   <a class="btn btn-light" style=" border-color: #e7e7e7;border-radius: 12px;background-color: #ECECEC;"  aria-current="page" th:href="@{/login}">Sign In</a>
-                </li>
-                <li class="nav-item"> 
-                    <a class="btn btn-dark" style="border-radius: 12px;margin-left:5px;"  aria-current="page" th:href="@{/register}">Register</a>
-                </li>
-               
-              
-              
-            </ul>
-        </div>
+      <div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
+   
+    <h4 style="margin-left: 85px;">SparkEd "ignites the spark of Higher Education"</h4></div>
+    <div class="col-sm-2">
+
     </div>
+ 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4"> <div class="container-fluid"> <a class="navbar-brand" th:href="@{/index}">Home</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About Us</a></li> <li class="nav-item"><a class="nav-link" th:href="@{/matchme}">APS Calculator</a></li> <li class="nav-item"><a class="nav-link" th:href="@{/searchinstitution}">Search Institution</a></li> <li class="nav-item"><a class="nav-link" th:href="@{/resources}">Resources</a></li>
+<li class="nav-item"><a class="nav-link" th:href="@{/programs}">Programs</a></li>
+<li class="nav-item"><a class="nav-link" th:href="@{/ratings}">Ratings</a></li>
+
+</ul>
+</div>
+</div>
 </nav>
-</div>
+</header>
 
+<main class="container mt-5">
+<section id="institution-search" style="display: flex; justify-content: center; padding: 40px;">
+    <div class="search-container" style="width: 60%; background-color: #ffffff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center;">Institution Search</h2>
+        <p style="text-align: center;">Find your ideal institution using our comprehensive search</p>
+        <div class="search-bar" style="margin-top: 20px;">
+            <label for="search-keywords">Keywords</label>
+            <input type="text" id="search-keywords" placeholder="Enter keywords (e.g., institution name, program type)..." style="width: 100%; padding: 10px; margin-top: 10px;">
+        </div>
+        <div class="additional-filters" style="margin-top: 20px;">
+            <label for="search-location">Location</label>
+            <select id="search-location" style="width: 100%; padding: 10px; margin-top: 10px;">
+                <option value="">Select Location</option>
+                <option value="johannesburg">Johannesburg, South Africa</option>
+                <option value="stellenbosch">Stellenbosch, South Africa</option>
+                <option value="pretoria">Pretoria, South Africa</option>
+                <option value="cape town">Cape Town, South Africa</option>
+                <option value="durban">Durban, South Africa</option>
+                <option value="bloemfontein">Bloemfontein, South Africa</option>
+                <option value="east london">East London, South Africa</option>
+                <option value="bela bela">Bela Bela, South Africa</option>
+                <option value="tzaneen">Tzaneen, South Africa</option>
+                <option value="vaal">Vaal, South Africa</option>
 
-<div class="container" >
-    <div class="row" style="margin-top: 85px;">
-        <div class="col-md-6 offset-md-3">
-            
-            <div class="card">
-                
-                <div class="card-body">
-                     <form method="post" role="form" th:action="@{/searchinstitution/searchInt}" th:object="${institutions}">
-                        <div class="mb-3">
-                            <label for="keyword" class="control-label">Search for Institution *</label>
-                            <input  type="text"
-                                   id="Institutionname"
-                                   name="Institutionname"
-                                   class="form-control"
-                                   placeholder="Search for Institution"
-                                   
-                            />
-                        </div>
-
-                        <div class="mb-3">
-                            <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Search</button>
-                      
-                        </div>
-                    </form>
-               <div class="container" >
-   
-  </div>   
-                </div>
-            </div>
+            </select>
+        </div>
+        <div class="additional-filters" style="margin-top: 20px;">
+            <label for="institution-type">Institution Type</label>
+            <select id="institution-type" style="width: 100%; padding: 10px; margin-top: 10px;">
+                <option value="">Select Institution Type</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+            <label for="program-duration" style="margin-top: 20px;">Program Duration</label>
+            <select id="program-duration" style="width: 100%; padding: 10px; margin-top: 10px;">
+                <option value="">Select Program Duration</option>
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+            </select>
+            <label for="tuition-fee-range" style="margin-top: 20px;">Tuition Fee Range</label>
+            <select id="tuition-fee-range" style="width: 100%; padding: 10px; margin-top: 10px;">
+                <option value="">Select Tuition Fee Range</option>
+                <option value="0-50000">0 - 50,000</option>
+                <option value="50001-100000">50,001 - 100,000</option>
+                <option value="100001-200000">100,001 - 200,000</option>
+            </select>
+            <label for="learning-preference" style="margin-top: 20px;">Learning Preference</label>
+            <select id="learning-preference" style="width: 100%; padding: 10px; margin-top: 10px;">
+                <option value="">Select Learning Preference</option>
+                <option value="online">Online</option>
+                <option value="blended">Blended</option>
+                <option value="in-person">In-person</option>
+            </select>
+        </div>
+        <button id="search-button" style="width: 100%; padding: 15px; margin-top: 20px; background-color: #000000; color: #fff; border: none; cursor: pointer;">Search</button>
+        <button id="clear-button" style="width: 100%; padding: 15px; margin-top: 10px; background-color: #c9c9c9; color: #000000; border: none; cursor: pointer;">Clear</button>
+        <div class="search-results" style="margin-top: 40px;">
+            <h3>Search Results</h3>
+            <div class="results-list" style="margin-top: 20px;"></div>
         </div>
     </div>
-</div>
+</section>
+</main>
+
 <div class="container">
- <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="#" class="fa fa-twitter"></a>
-		<a href="#" class="fa fa-instagram"></a>
-		<a href="#" class="fa fa-youtube"></a>
-		<a href="#" class="fa fa-linkedin"></a>
-    </div>
-
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>Quick Links</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Abput Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms of service</a></li>
-      </ul>
+    <footer class="container mt-5">
+      <div class="row">
+          <div class="col-md-4">
+              <h5>About SparkED</h5>
+              <p>SparkED is dedicated to helping students find the right educational path with personalized recommendations and comprehensive resources.</p>
+          </div>
+        
+          <div class="col-md-4">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                  <li><a th:href="@{/}">Home</a></li>
+                  <li><a th:href="@{/aboutus}">About Us</a></li>
+                  <li><a th:href="@{/matchme}">Match Me</a></li>
+                  <li><a th:href="@{/searchinstitution}">Search Institutions</a></li>
+                  <li><a th:href="@{/programs}">Programs</a></li>
+                  <li><a th:href="@{/ratings}">Ratings</a></li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+              <h5>Contact Us</h5>
+              <p>Email: <a href="mailto:sparkedignites@gmail.com">sparkedignites@gmail.com</a></p>
+              <p>Phone: +27 (0)12 565 2417</p>
+              <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
+          </div>
+      </div>
+      <br>
+      <div class="socialIcon">
+          <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+          <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+          <a href="https://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+          <a href="https://www.youtube.com" target="_blank" class="fa fa-youtube"></a>
+          <a href="https://www.linkedin.com" target="_blank" class="fa fa-linkedin"></a>
+      </div>
+      <div class="text-center mt-3">
+          <p>&copy; 2024 SparkED. All rights reserved.</p>
+      </div>
     
-    </div>
-
-    <div class="col mb-3">
-      <h5>Contact Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Call</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-     <p>The information provided on this website is intended for general informational purposes only and
-does not constitute professional advice. Please consult with relevant professionals for specific guidance.
-in</p>
-    </div>
+      </footer>
+  </div>
    
-    
-  </footer>
-</div>
-
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFZByFRiOn4JZrA2M/YaapmecMH60YY2H9zZ8zIMfB07jRMcF8ABdGF8Rm"
+        crossorigin="anonymous">
+    </script> 
+    </body> 
+    </html>

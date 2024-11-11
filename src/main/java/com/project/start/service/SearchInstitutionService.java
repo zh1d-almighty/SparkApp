@@ -16,7 +16,5 @@ public class SearchInstitutionService {
 	        return list;
     }
 	    
-	 public List<Institution> getByKeyword(String keyword) {
-	        return searchInstitutionRepository.findByKeyword(keyword);
-    }
+	
 }

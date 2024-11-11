@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SparkEd | Match Me</title>
+    <title>SparkEd | APS Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <style>
-          
-         
-.fa {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .fa {
   padding: 20px;
   font-size: 30px;
   width: 50px;
@@ -19,168 +16,181 @@
   text-decoration: none;
   margin: 5px 2px;
 }
-
+ 
 .fa:hover {
     opacity: 0.7;
 }
+ 
+.socialIcon{
+    display: flex;
+    justify-content: center;
+}
 
+.socialIcon a{
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+}
 .fa-facebook {
   background: #3B5998;
   color: white;
 }
-
+ 
 .fa-twitter {
   background: #55ACEE;
   color: white;
 }
-
+ 
 .fa-google {
   background: #dd4b39;
   color: white;
 }
-
+ 
 .fa-linkedin {
   background: #007bb5;
   color: white;
 }
-
+ 
 .fa-youtube {
   background: #bb0000;
   color: white;
 }
-
+ 
 .fa-instagram {
   background: #125688;
   color: white;
 }
-
+ 
 .fa-pinterest {
   background: #cb2027;
   color: white;
 }
-
+ 
 .fa-snapchat-ghost {
   background: #fffc00;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
+ 
 .fa-skype {
   background: #00aff0;
   color: white;
 }
-
+ 
 .fa-android {
   background: #a4c639;
   color: white;
 }
-
+ 
 .fa-dribbble {
   background: #ea4c89;
   color: white;
 }
-
+ 
 .fa-vimeo {
   background: #45bbff;
   color: white;
 }
-
+ 
 .fa-tumblr {
   background: #2c4762;
   color: white;
 }
-
+ 
 .fa-vine {
   background: #00b489;
   color: white;
 }
-
+ 
 .fa-foursquare {
   background: #45bbff;
   color: white;
 }
-
+ 
 .fa-stumbleupon {
   background: #eb4924;
   color: white;
 }
-
+ 
 .fa-flickr {
   background: #f40083;
   color: white;
 }
-
+ 
 .fa-yahoo {
   background: #430297;
   color: white;
 }
-
+ 
 .fa-soundcloud {
   background: #ff5500;
   color: white;
 }
-
+ 
 .fa-reddit {
   background: #ff5700;
   color: white;
 }
-
+ 
 .fa-rss {
   background: #ff6600;
   color: white;
 }
-label {
- display: inline-block;
- margin-bottom: 5px;
-}
+  .subject-row select {
+      width: 300px; 
+      height: 50px; 
+      font-size: 18px; 
+      padding: 5px;
+      margin: 10px 0;
+  }
+  button {
+      width: 450px; 
+      height: 50px; 
+      font-size: 18px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 12px;
+  }
 
-.form-row {
-  display: flex;
-}
-
-.form-group {
-  padding: 5px;
-  width: 50%;
-}
-
-.form-group input {
-  width: 100%;
-}
+  .btn-dark {
+      background-color: #343a40;
+      border-color: #343a40;
+  }
 </style>
+</style>
+    </style>
 </head>
-<body >
-<br>
-<br>
-<br>
-<div class="container">
- <div class="row">
- <br><br>
-  		<div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
-  		<div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
-   
-    <h4 style="margin-right: 85px;" >SparkEd "ignites the spark of Higher Education"</h4></div>
-    <div class="col-sm-2"></div>
-</div>
-</div>
-<div class="container">
-</div>
-<div class="container">
+<body>
 
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">SparkEd</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
-            
+<div class="container text-center">
+    <br><br><br>
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <img th:src="@{/images/logo.png}" width="200" height="200">
+        </div>
+        <div class="col-sm-6">
+            <h1><b>SparkEd</b></h1>
+            <h4>SparkEd "ignites the spark of Higher Education"</h4>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand" href="#">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+           
                  <li class="nav-item">
                     <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/aboutus}">About us </a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">Match Me</a>
+                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">APS Calculator</a>
                 </li>
                   <li class="nav-item">
                     <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/searchinstitution}">Search Institution</a>
@@ -194,188 +204,481 @@ label {
                   <li class="nav-item">
                     <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/ratings}">Ratings</a>
                 </li>
+                  </li>
                    <li class="nav-item">
+
                    <a class="btn btn-light" style=" border-color: #e7e7e7;border-radius: 12px;background-color: #ECECEC;"  aria-current="page" th:href="@{/login}">Sign In</a>
-                </li>
-                <li class="nav-item"> 
+             
+  </li>
+                <li class="nav-item">
                     <a class="btn btn-dark" style="border-radius: 12px;margin-left:5px;"  aria-current="page" th:href="@{/register}">Register</a>
                 </li>
                
-            </ul>
+           
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <h3 class="my-4">APS Calculator</h3>
+	<div class="container d-flex justify-content-center">
+	
+        <form id="aps-form">
+          <div class="subject-row">
+                 <select id="subject1" onchange="updateDropdowns()">
+ <option value="" selected disabled>Select Subject</option>
+                        <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score1">
+<option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+            <div class="subject-row">
+                 <select id="subject2" onchange="updateDropdowns()">
+ <option value="" selected disabled>Select Subject</option>
+                       <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score2">
+<option value="0">0</option>
+                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+ 
+
+            <div class="subject-row">
+                <select id="subject3" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Subject</option>
+                  <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score3">
+<option value="0">0</option>
+                 <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+            <div class="subject-row">
+                <select id="subject4" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Subject</option>
+                      <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score4">
+<option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+            <div class="subject-row">
+                <select id="subject5" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Subject</option>
+                       <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score5">
+<option value="0">0</option>
+                 <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+            <div class="subject-row">
+                <select id="subject6" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Subject</option>
+                         <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score6">
+<option value="0">0</option>
+                   <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+            <div class="subject-row">
+                <select id="subject7" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Subject</option>
+                          <option value="English">English</option>
+                    <option value="Science">Science</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score7">
+  <option value="0">0</option>
+                         <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+<div class="subject-row">
+                <select id="subject8" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Additional Subject</option>
+                          <option value="English">English</option>
+<option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score8">
+  <option value="0">0</option>
+                         <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+<div class="subject-row">
+                <select id="subject9" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Additional Subject</option>
+                          <option value="English">English</option>
+                    <option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score9">
+  <option value="0">0</option>
+                         <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+<div class="subject-row">
+                <select id="subject10" onchange="updateDropdowns()">
+<option value="" selected disabled>Select Additional Subject</option>
+                          <option value="English">English</option>
+                    <option value="Mathematics">Mathematics</option>
+ <option value="Mathematical literacy">Mathematical literacy</option>
+ <option value="Life Orientation">Life Orientation</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Economics">Economics</option>
+                    <option value="EGD">Engineering Graphics & Design</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Zulu">Zulu</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Physical Science">Physical Science</option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Tourism">Tourism</option>
+					<option value="Consumer Studies">Consumer Studies</option>
+                </select>
+                <select id="score10">
+  <option value="0">0</option>
+                         <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+</div>
+ <div class="d-flex justify-content-center my-3">
+            <button type="button" class="mx-2" onclick="clearDropdowns()">Clear</button>
+    </div>    
+            <button type="button" class="btn btn-dark my-3" onclick="calculateAPS()">Calculate APS Score</button>
+        </form>
+    </div>
+
+    <script>
+// Function to clear all subject and score dropdown selections
+function clearDropdowns() {
+    // Clear subject dropdowns (up to subject10)
+    for (let i = 1; i <= 10; i++) {
+        let subjectDropdown = document.getElementById('subject' + i);
+        if (subjectDropdown) {
+            subjectDropdown.selectedIndex = 0; // Reset to the first option (Choose a subject)
+        }
+    }
+   
+    // Clear score dropdowns (up to score10)
+    for (let i = 1; i <= 10; i++) {
+        let scoreDropdown = document.getElementById('score' + i);
+        if (scoreDropdown) {
+            scoreDropdown.selectedIndex = 0; // Reset to the first option (Choose score)
+        }
+    }
+}
+function updateDropdowns() {
+        // Get selected values
+        let selectedSubjects = [];
+        for (let i = 1; i <= 10; i++) {
+            const subjectDropdown = document.getElementById('subject' + i);
+            selectedSubjects.push(subjectDropdown.value);
+        }
+
+        // Loop through each dropdown and update options
+        for (let i = 1; i <= 10; i++) {
+            const subjectDropdown = document.getElementById('subject' + i);
+            const options = subjectDropdown.options;
+
+            // Enable all options initially
+            for (let j = 0; j < options.length; j++) {
+                options[j].disabled = false;
+            }
+
+            // Disable selected options in other dropdowns
+            for (let j = 0; j < options.length; j++) {
+                if (selectedSubjects.includes(options[j].value) && options[j].value !== subjectDropdown.value) {
+                    options[j].disabled = true;
+                }
+            }
+        }
+    }
+
+    // APS calculation function (kept from your original code)
+   function calculateAPS() {
+            let totalScore = 0;
+            for (let i = 1; i <= 10; i++) {
+                let score = parseInt(document.getElementById('score' + i).value);
+                totalScore += score;
+            }
+           
+           let message = '';
+if (totalScore >= 15 && totalScore <= 17) {
+    message = `Based on your score of ${totalScore}, Congratulations, You Qualify For a Higher Certificate.`;
+} else if (totalScore >= 18 && totalScore <= 24) {
+    message = `Based on your score of ${totalScore}, Congratulations, You Qualify For a Diploma.`;
+} else if (totalScore >= 25 && totalScore <= 50) {
+    message = `Based on your score of ${totalScore}, Congratulations, You Qualify For a Bachelor's Degree.`;
+} else {
+    message = `Unfortunately, Your Score of ${totalScore} Is Below The Required Qualification.`;
+}
+
+
+            document.getElementById('modalMessage').innerText = message;
+
+            var myModal = new bootstrap.Modal(document.getElementById('resultModal'), { keyboard: false });
+            myModal.show();
+        }
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">APS Score Result</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalMessage">
+                    <!-- The message will appear here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-</div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
-<div class="container" >
-    <div class="row" style="margin-top: 85px;">
-        <div class="col-md-6 offset-md-3">
-            <div th:if="${param.error}">
-                <div class="alert alert-danger">Invalid Email and Password.</div>
-            </div>
-            <div th:if="${param.logout}">
-                <div class="alert alert-success">You have been logged out.</div>
-            </div>
-            <div class="card">
-                <h1>Match Me</h1>
-                <div class="card-body">
-                    <form
-                            method="post"
-                            th:action="@{/matchme}"
-                            class="form-horizontal"
-                            role="form"
-                    >
-                        
-			                  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject"  class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level" class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-								  <div class="form-row">
-								    <div class="form-group">
-								      <label for="subject">Subject</label>
-								      <input id="subject" name="subject" class="form-control" type="text">
-								    </div>
-								    <div class="form-group">
-								      <label for="level">Level</label>
-								      <input id="level" name="level"class="form-control" type="text">
-								    </div>
-								  </div>
-							  </form>
-						             
-						       
-                        <div class="mb-3">
-                        <br>
-                            <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Match Me</button>
-                             
-                        </div>     
-		       
-		        </div>
-		        
-		        </form>
-    </div>
-</div>
-<div></div>
-</div></div>
-</div>
 <div class="container">
- <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="#" class="fa fa-twitter"></a>
-		<a href="#" class="fa fa-instagram"></a>
-		<a href="#" class="fa fa-youtube"></a>
-		<a href="#" class="fa fa-linkedin"></a>
-    </div>
-
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>Quick Links</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Abput Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms of service</a></li>
-      </ul>
-    
-    </div>
-
-    <div class="col mb-3">
-      <h5>Contact Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Call</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-     <p>The information provided on this website is intended for general informational purposes only and
-does not constitute professional advice. Please consult with relevant professionals for specific guidance.
-in</p>
-    </div>
-   
-    
-  </footer>
+    <footer class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>About SparkED</h5>
+                <p>SparkED is dedicated to helping students find the right educational path with personalized recommendations and comprehensive resources.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/aboutus}">About Us</a></li>
+                    <li><a th:href="@{/matchme}">Match Me</a></li>
+                    <li><a th:href="@{/searchinstitution}">Search Institutions</a></li>
+                    <li><a th:href="@{/programs}">Programs</a></li>
+                    <li><a th:href="@{/ratings}">Ratings</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Email: <a href="mailto:support@sparked.com">support@sparked.com</a></p>
+            <p>Phone: +27 (0)12 565 2417</p>
+            <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
+            </div>
+        </div>
+        <div class="socialIcon">
+            <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+            <a href="https://www.youtube.com" target="_blank" class="fa fa-youtube"></a>
+            <a href="https://www.linkedin.com" target="_blank" class="fa fa-linkedin"></a>
+        </div>
+        <div class="text-center mt-3">
+            <p>&copy; 2024 SparkED. All rights reserved.</p>
+        </div>
+     
+        </footer>
 </div>
-
+ 
 </body>
 </html>
+
+
+
+

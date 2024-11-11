@@ -34,12 +34,13 @@ public class SpringSecurity {
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers("/aboutus/**").permitAll()
                                 .requestMatchers("/forgotpassword/**").permitAll()
-                                .requestMatchers("/searchinstitution/**").permitAll()
+                                .requestMatchers("/searchinstitution/**").authenticated()
                                 .requestMatchers("/confirm-account/**").permitAll()
-                                .requestMatchers("/matchme/**").permitAll()
-                                .requestMatchers("/programs/**").permitAll()
-                                .requestMatchers("/institutions/**").permitAll()
-                                .requestMatchers("/ratings/**").permitAll()
+                                .requestMatchers("/matchme/**").authenticated()                               
+                                .requestMatchers("/programs/**").authenticated()
+                                .requestMatchers("/institutions/**").authenticated()
+                                .requestMatchers("/ratings/**").fullyAuthenticated()
+                                .requestMatchers("/resources/**").authenticated()
                                 .requestMatchers("/users/**").hasRole("ADMIN")
                                 
                                
@@ -47,7 +48,7 @@ public class SpringSecurity {
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/index")
                                 .permitAll()
                 ).logout(
                         logout -> logout

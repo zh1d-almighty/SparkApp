@@ -4,223 +4,383 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>SparkEd | Ratings</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
-          <script>
-          
-       // script.js
+    <title>SparkEd | Ratings </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Reset some styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-       // To access the stars
-       let stars = 
-       	document.getElementsByClassName("star");
-       let output = 
-       	document.getElementById("output");
+        .card {
+            background: #fff;
+            margin: 0 1rem;
+            padding: 1rem;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 0.5rem;
+            margin-bottom: 30px;
+        }
 
-       // Funtion to update rating
-       function gfg(n) {
-       	remove();
-       	for (let i = 0; i < n; i++) {
-       		if (n == 1) cls = "one";
-       		else if (n == 2) cls = "two";
-       		else if (n == 3) cls = "three";
-       		else if (n == 4) cls = "four";
-       		else if (n == 5) cls = "five";
-       		stars[i].className = "star " + cls;
-       	}
-       	output.innerText = "Rating is: " + n + "/5";
-       }
+        .star {
+            font-size: 3rem;
+            cursor: pointer;
+        }
 
-       // To remove the pre-applied styling
-       function remove() {
-       	let i = 0;
-       	while (i < 5) {
-       		stars[i].className = "star";
-       		i++;
-       	}
-       }
+        .star-1 {
+            color: rgb(255, 0, 0);
+        }
 
-          </script>
-          <style>
-          /* style.css */
+        .star-2 {
+            color: rgb(255, 106, 0);
+        }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+        .star-3 {
+            color: rgb(255, 120, 203);
+        }
+
+        .star-4 {
+            color: rgb(255, 255, 0);
+        }
+
+        .star-5 {
+            color: rgb(24, 159, 14);
+        }
+
+        /* Layout */
+        .rating-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .rating-section {
+            width: 45%;
+        }
+
+        .comment {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+ 
+.fa:hover {
+    opacity: 0.7;
+}
+ 
+.socialIcon{
+    display: flex;
+    justify-content: center;
 }
 
-body {
-
+.socialIcon a{
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
 }
-
-.card {
-max-width: 33rem;
-background: #fff;
-margin: 0 1rem;
-padding: 1rem;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-width: 100%;
-border-radius: 0.5rem;
+.fa-facebook {
+  background: #3B5998;
+  color: white;
 }
-
-.star {
-font-size: 10vh;
-cursor: pointer;
+ 
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
 }
-
-.one {
-color: rgb(255, 0, 0);
+ 
+.fa-google {
+  background: #dd4b39;
+  color: white;
 }
-
-.two {
-color: rgb(255, 106, 0);
+ 
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
 }
-
-.three {
-color: rgb(251, 255, 120);
+ 
+.fa-youtube {
+  background: #bb0000;
+  color: white;
 }
-
-.four {
-color: rgb(255, 255, 0);
+ 
+.fa-instagram {
+  background: #125688;
+  color: white;
 }
-
-.five {
-color: rgb(24, 159, 14);
+ 
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
 }
-          
-            
-          </style>
+ 
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+ 
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+ 
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+ 
+.fa-dribbble {
+  background: #ea4c89;
+  color: white;
+}
+ 
+.fa-vimeo {
+  background: #45bbff;
+  color: white;
+}
+ 
+.fa-tumblr {
+  background: #2c4762;
+  color: white;
+}
+ 
+.fa-vine {
+  background: #00b489;
+  color: white;
+}
+ 
+.fa-foursquare {
+  background: #45bbff;
+  color: white;
+}
+ 
+.fa-stumbleupon {
+  background: #eb4924;
+  color: white;
+}
+ 
+.fa-flickr {
+  background: #f40083;
+  color: white;
+}
+ 
+.fa-yahoo {
+  background: #430297;
+  color: white;
+}
+ 
+.fa-soundcloud {
+  background: #ff5500;
+  color: white;
+}
+ 
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+ 
+.fa-rss {
+  background: #ff6600;
+  color: white;
+}
+    </style>
 </head>
-<body>
+<body >
 <br>
 <br>
 <br>
 <div class="container">
- <div class="row">
- <br><br>
-  		<div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
-  		<div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
+<div class="row">
+<br><br>
+      <div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
+      <div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
    
-    <h4 style="margin-right: 85px;" >SparkEd "ignites the spark of Higher Education"</h4></div>
+    <h4 style="margin-right: 85px;" >SparkEd "Ignites the spark of Higher Education"</h4></div>
     <div class="col-sm-2"></div>
 </div>
 </div>
-<div class="container">
-</div>
-<div class="container">
 
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">SparkEd</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
-            
-                 <li class="nav-item">
-                    <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/aboutus}">About us </a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">Match Me</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/searchinstitution}">Search Institution</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/register}">Resources</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/programs}">Programs</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/ratings}">Ratings</a>
-                </li>
-                  </li>
-                   <li class="nav-item">
-                   <a class="btn btn-light" style=" border-color: #e7e7e7;border-radius: 12px;background-color: #ECECEC;"  aria-current="page" th:href="@{/login}">Sign In</a>
-                </li>
-                <li class="nav-item"> 
-                    <a class="btn btn-dark" style="border-radius: 12px;margin-left:5px;"  aria-current="page" th:href="@{/register}">Register</a>
-                </li>
-               
-              
-              
-            </ul>
+    <!-- navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
+<div class="container-fluid">
+			<a class="navbar-brand navbar navbar-expand-lg navbar-light bg-light mt-4" th:href="@{#}">Home</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav ms-auto">
+		<li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About Us</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/matchme}">APS Calculator</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/searchinstitution}">Search Institution</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/resources}">Resources</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/programs}">Programs</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/ratings}">Ratings</a></li>                      
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
+
+    <!-- Rating Section -->
+    <div class="container rating-container" style="margin-top: 70px;">
+        <div class="rating-section">
+            <div class="card">
+                <h1>SparkEd Rating</h1>
+                <br />
+                <span onclick="setRating(1)" class="star">★</span>
+                <span onclick="setRating(2)" class="star">★</span>
+                <span onclick="setRating(3)" class="star">★</span>
+                <span onclick="setRating(4)" class="star">★</span>
+                <span onclick="setRating(5)" class="star">★</span>
+                <h3 id="output">Rating is: 0/5</h3>
+
+                <!-- Comment Section -->
+                <textarea id="comment" class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
+                <button class="btn btn-primary mt-2" onclick="submitRating()">Submit Rating</button>
+            </div>
+        </div>
+
+        <!-- Submitted Ratings and Comments Section -->
+        <div class="rating-section">
+            <div id="ratingsList">
+                <!-- Submitted ratings and comments will appear here -->
+            </div>
         </div>
     </div>
-</nav>
-</div>
-<div class="container" style="margin-top:70px;">
-   <div class="card">
-        <h1>SparkEd Rating</h1>
-        <br />
-        <span onclick="gfg(1)"
-              class="star">★
-        </span>
-        <span onclick="gfg(2)"
-              class="star">★
-        </span>
-        <span onclick="gfg(3)"
-              class="star">★
-        </span>
-        <span onclick="gfg(4)"
-              class="star">★
-        </span>
-        <span onclick="gfg(5)"
-              class="star">★
-        </span>
-        <h3 id="output">
-              Rating is: 0/5
-          </h3>
-    </div>
-</div>
-<div class="container">
- <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="#" class="fa fa-twitter"></a>
-		<a href="#" class="fa fa-instagram"></a>
-		<a href="#" class="fa fa-youtube"></a>
-		<a href="#" class="fa fa-linkedin"></a>
-    </div>
 
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>Quick Links</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Abput Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms of service</a></li>
-      </ul>
-    
+    <!-- Footer Section -->
+    <div class="container">
+        <footer class="container mt-5">
+          <div class="row">
+              <div class="col-md-4">
+                  <h5>About SparkED</h5>
+                  <p>SparkED is dedicated to helping students find the right educational path with personalized recommendations and comprehensive resources.</p>
+              </div>
+              <div class="col-md-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a th:href="@{/}">Home</a></li>
+                      <li><a th:href="@{/aboutus}">About Us</a></li>
+                      <li><a th:href="@{/matchme}">Match Me</a></li>
+                      <li><a th:href="@{/searchinstitution}">Search Institutions</a></li>
+                      <li><a th:href="@{/programs}">Programs</a></li>
+                      <li><a th:href="@{/ratings}">Ratings</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4">
+                  <h5>Contact Us</h5>
+                  <p>Email: <a href="mailto:sparkedignites@gmail.com">sparkedignites@gmail.com</a></p>
+                  <p>Phone: +27 (0)12 565 2417</p>
+                  <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
+              </div>
+          </div>
+          <div class="socialIcon">
+              <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+              <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+              <a href="https://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+              <a href="https://www.youtube.com" target="_blank" class="fa fa-youtube"></a>
+              <a href="https://www.linkedin.com" target="_blank" class="fa fa-linkedin"></a>
+          </div>
+          <div class="text-center mt-3">
+              <p>&copy; 2024 SparkED. All rights reserved.</p>
+          </div>
+        
+          </footer>
+      </div>
     </div>
 
-    <div class="col mb-3">
-      <h5>Contact Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Call</a></li>
-      </ul>
-    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
-    <div class="col mb-3">
-     <p>The information provided on this website is intended for general informational purposes only and
-does not constitute professional advice. Please consult with relevant professionals for specific guidance.
-in</p>
-    </div>
-   
-    
-  </footer>
-</div>
+    <script>
+        let selectedRating = 0;
+        const output = document.getElementById("output");
+        const ratingsList = document.getElementById("ratingsList");
 
+        // Function to set the rating
+        function setRating(rating) {
+            selectedRating = rating;
+            removeClasses();
+            for (let i = 0; i < rating; i++) {
+                document.getElementsByClassName("star")[i].classList.add(`star-${rating}`);
+            }
+            output.innerText = `Rating is: ${rating}/5`; // Update the rating text
+        }
+
+        // Function to remove all classes from stars
+        function removeClasses() {
+            let stars = document.getElementsByClassName("star");
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].classList.remove("star-1", "star-2", "star-3", "star-4", "star-5");
+            }
+        }
+
+        // Function to submit the rating and comment
+        function submitRating() {
+            if (selectedRating === 0) {
+                alert("Please select a rating!");
+                return;
+            }
+            let comment = document.getElementById("comment").value;
+
+            // Create a new comment section
+            let newComment = document.createElement("div");
+            newComment.classList.add("comment");
+            newComment.innerHTML = `<strong>Rating: ${selectedRating}/5</strong><p>${comment}</p>`;
+            ratingsList.appendChild(newComment);
+
+            // Save the rating and comment to localStorage
+            saveReviewToLocalStorage(selectedRating, comment);
+
+            // Reset the rating and comment input
+            selectedRating = 0;
+            output.innerText = "Rating is: 0/5";
+            document.getElementById("comment").value = "";
+        }
+
+        // Save the review to localStorage
+        function saveReviewToLocalStorage(rating, comment) {
+            let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            reviews.push({ rating, comment });
+            localStorage.setItem("reviews", JSON.stringify(reviews));
+        }
+
+        // Load reviews from localStorage on page load
+        window.onload = function () {
+            let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            reviews.forEach(function (review) {
+                let newComment = document.createElement("div");
+                newComment.classList.add("comment");
+                newComment.innerHTML = `<strong>Rating: ${review.rating}/5</strong><p>${review.comment}</p>`;
+                ratingsList.appendChild(newComment);
+            });
+        };
+    </script>
 </body>
+
 </html>
+

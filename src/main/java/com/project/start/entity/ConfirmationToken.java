@@ -64,5 +64,10 @@ public class ConfirmationToken {
         this.user = user;
     }
 
+	public User getUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

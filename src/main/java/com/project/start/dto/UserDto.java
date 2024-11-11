@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,14 @@ public class UserDto
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @NotEmpty(message = "First Name should not be empty")
-    private String name;
+	  @NotEmpty(message = "First Name should not be empty")
+	    @Pattern(regexp = "^[A-Za-z]+([ '-][A-Za-z]+)*$", message = "First Name should only contain letters, spaces, or hyphens")
+	    private String name;
 
+	    @NotEmpty(message = "Last Name should not be empty")
+	    @Pattern(regexp = "^[A-Za-z]+([ '-][A-Za-z]+)*$", message = "Last Name should only contain letters, spaces, or hyphens")
+	    private String lastname;
+    
  
     private String HighestQualification;
 
@@ -75,10 +81,7 @@ public class UserDto
 		this.email = email;
 	}
 
-	@NotEmpty(message = "Last Name should not be empty")
-	private String lastname;
-    
-    
+	    
     @Email
     @NotEmpty(message = "Email should not be empty")
     private String email;

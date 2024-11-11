@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.start.dto.ProgramsDto;
 import com.project.start.dto.UserDto;
+import com.project.start.entity.ConfirmationToken;
 import com.project.start.entity.Institution;
 import com.project.start.entity.Programs;
 import com.project.start.entity.User;
+import com.project.start.repository.ConfirmationTokenRepository;
+import com.project.start.repository.UserRepository;
 import com.project.start.service.ProgramService;
 import com.project.start.service.SearchInstitutionService;
 import com.project.start.service.UserService;
@@ -57,10 +60,10 @@ public class AuthController {
         return "searchinstitution";
     }
     
-    @GetMapping("/updateProfile")
-    public String updateProfile() {
-        return "updateProfile";
-    }
+    //@GetMapping("/updateProfile")
+    //public String updateProfile() {
+     //   return "updateProfile";
+    //}
     
     
     
@@ -78,7 +81,14 @@ public class AuthController {
     public String aboutus(){
         return "aboutus";
     }
-
+    @GetMapping("/programs")
+    public String programs(){
+        return "programs";
+    }
+    @GetMapping("/resources")
+    public String resources(){
+        return "resources";
+    }
     // handler method to handle user registration request
     @GetMapping("register")
     public String showRegistrationForm(Model model){
@@ -105,7 +115,7 @@ public class AuthController {
         return "redirect:/register?success";
     }
     
-    @PostMapping("/register/updateprofile")
+    @PostMapping("/register/index") //"/register/updateprofile") 
     public String updateprofile(@Valid @ModelAttribute("user") UserDto user,
                                BindingResult result,
                                Model model){
@@ -135,15 +145,27 @@ public class AuthController {
     @PostMapping("/searchinstitution/searchInt")
     public String home(Institution institution, Model model, String keyword) {
     	
-        if (keyword != null) {
-            List<Institution> list = searchInstitutionService.getByKeyword(keyword);
-            model.addAttribute("list", list);
-        } else {
-            List<Institution> list = searchInstitutionService.getAllInstitution();
-            model.addAttribute("list", list);
-        }
+       
         return "searchinstitution";
     }
-    
-    
+  
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private ConfirmationTokenRepository confirmationTokenRepository;
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestParam("token") String token, @RequestParam("password") String newPassword) {
+        ConfirmationToken confirmationToken = confirmationTokenRepository.findByConfirmationToken(token);
+        if (confirmationToken == null) {
+            return ResponseEntity.badRequest().body("Invalid or expired token.");
+        }
+
+        User user = confirmationToken.getUser();
+        user.setPassword(newPassword);  // You should encode the password here
+        userRepository.save(user);
+        
+        return ResponseEntity.ok("Password has been successfully reset.");
+    }
 }

@@ -4,7 +4,7 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>SparkEd | Sign In</title>
+    <title>SparkEd | Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,112 +17,123 @@
   text-decoration: none;
   margin: 5px 2px;
 }
-
+ 
 .fa:hover {
     opacity: 0.7;
 }
+ 
+.socialIcon{
+    display: flex;
+    justify-content: center;
+}
 
+.socialIcon a{
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+}
 .fa-facebook {
   background: #3B5998;
   color: white;
 }
-
+ 
 .fa-twitter {
   background: #55ACEE;
   color: white;
 }
-
+ 
 .fa-google {
   background: #dd4b39;
   color: white;
 }
-
+ 
 .fa-linkedin {
   background: #007bb5;
   color: white;
 }
-
+ 
 .fa-youtube {
   background: #bb0000;
   color: white;
 }
-
+ 
 .fa-instagram {
   background: #125688;
   color: white;
 }
-
+ 
 .fa-pinterest {
   background: #cb2027;
   color: white;
 }
-
+ 
 .fa-snapchat-ghost {
   background: #fffc00;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
+ 
 .fa-skype {
   background: #00aff0;
   color: white;
 }
-
+ 
 .fa-android {
   background: #a4c639;
   color: white;
 }
-
+ 
 .fa-dribbble {
   background: #ea4c89;
   color: white;
 }
-
+ 
 .fa-vimeo {
   background: #45bbff;
   color: white;
 }
-
+ 
 .fa-tumblr {
   background: #2c4762;
   color: white;
 }
-
+ 
 .fa-vine {
   background: #00b489;
   color: white;
 }
-
+ 
 .fa-foursquare {
   background: #45bbff;
   color: white;
 }
-
+ 
 .fa-stumbleupon {
   background: #eb4924;
   color: white;
 }
-
+ 
 .fa-flickr {
   background: #f40083;
   color: white;
 }
-
+ 
 .fa-yahoo {
   background: #430297;
   color: white;
 }
-
+ 
 .fa-soundcloud {
   background: #ff5500;
   color: white;
 }
-
+ 
 .fa-reddit {
   background: #ff5700;
   color: white;
 }
-
+ 
 .fa-rss {
   background: #ff6600;
   color: white;
@@ -134,23 +145,23 @@
 <br>
 <br>
 <div class="container">
- <div class="row">
- <br><br>
-  		<div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
-  		<div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
+<div class="row">
+<br><br>
+      <div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
+      <div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
    
-    <h4 style="margin-right: 85px;" >SparkEd "ignites the spark of Higher Education"</h4></div>
+    <h4 style="margin-right: 85px;" >SparkEd "Ignites the spark of Higher Education"</h4></div>
     <div class="col-sm-2"></div>
 </div>
 </div>
 <div class="container">
 </div>
 <div class="container">
-
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+ 
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">SparkEd</a>
+        <a class="navbar-brand" href="@{index}">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -161,13 +172,14 @@
                     <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/aboutus}">About us </a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">Match Me</a>
+                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">APS Calculator</a>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/resources}">Resources</a></li>
                 </li>
                   <li class="nav-item">
                     <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/searchinstitution}">Search Institution</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/register}">Resources</a>
+                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/resources}">Resources</a>
                 </li>
                   <li class="nav-item">
                     <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/programs}">Programs</a>
@@ -178,7 +190,7 @@
                    <li class="nav-item">
                    <a class="btn btn-light" style=" border-color: #e7e7e7;border-radius: 12px;background-color: #ECECEC;"  aria-current="page" th:href="@{/login}">Sign In</a>
                 </li>
-                <li class="nav-item"> 
+                <li class="nav-item">
                     <a class="btn btn-dark" style="border-radius: 12px;margin-left:5px;"  aria-current="page" th:href="@{/register}">Register</a>
                 </li>
                
@@ -187,25 +199,21 @@
     </div>
 </nav>
 </div>
-
-
+ 
+ 
 <div class="container" >
-    <div class="row" style="margin-top: 85px;">
-        <div class="col-md-4 offset-md-4">
-            <div th:if="${param.error}">
-                <div class="alert alert-danger">Invalid Email and Password.</div>
-            </div>
-            <div th:if="${param.logout}">
-                <div class="alert alert-success">You have been logged out.</div>
-            </div>
-            <div class="card">
-                
-                <div class="card-body">
-                    <form
-                            method="post"
-                            th:action="@{/login}"
-                            class="form-horizontal"
-                            role="form"
+  <div class="row" style="margin-top: 85px;">
+      <div class="col-md-4 offset-md-4">
+         
+           
+          <div class="card">
+              
+              <div class="card-body">
+                  <form
+                          method="post"
+                          th:action="@{/login}"
+                          class="form-horizontal"
+                          role="form"
                     >
                         <div class="mb-3">
                             <label for="username" class="control-label">Email *</label>
@@ -216,7 +224,7 @@
                                    placeholder="Email"
                             />
                         </div>
-
+ 
                         <div class="mb-3">
                             <label for="password" class="control-label">Password *</label>
                             <input type="password"
@@ -226,7 +234,7 @@
                                    placeholder="Password"
                             />
                         </div>
-
+ 
                         <div class="mb-3">
                             <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Login</button>
                               <span><a href="/" th:href="@{/forgotpassword}">Forgot Password?</a></span>
@@ -239,47 +247,42 @@
     </div>
 </div>
 <div class="container">
- <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="#" class="fa fa-twitter"></a>
-		<a href="#" class="fa fa-instagram"></a>
-		<a href="#" class="fa fa-youtube"></a>
-		<a href="#" class="fa fa-linkedin"></a>
+  <footer class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <h5>About SparkED</h5>
+            <p>SparkED is dedicated to helping students find the right educational path with personalized recommendations and comprehensive resources.</p>
+        </div>
+        <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/aboutus}">About Us</a></li>
+                <li><a th:href="@{/matchme}">Match Me</a></li>
+                <li><a th:href="@{/searchinstitution}">Search Institutions</a></li>
+                <li><a th:href="@{/programs}">Programs</a></li>
+                <li><a th:href="@{/ratings}">Ratings</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h5>Contact Us</h5>
+          <p>Phone: +27 (0)12 565 2417</p>
+        <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
+        </div>
     </div>
-
-    <div class="col mb-3">
-
+    <div class="socialIcon">
+        <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
+        <a href="https://www.youtube.com" target="_blank" class="fa fa-youtube"></a>
+        <a href="https://www.linkedin.com" target="_blank" class="fa fa-linkedin"></a>
     </div>
-
-    <div class="col mb-3">
-      <h5>Quick Links</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Abput Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms of service</a></li>
-      </ul>
-    
+    <div class="text-center mt-3">
+        <p>&copy; 2024 SparkED. All rights reserved.</p>
     </div>
-
-    <div class="col mb-3">
-      <h5>Contact Us</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Call</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-     <p>The information provided on this website is intended for general informational purposes only and
-does not constitute professional advice. Please consult with relevant professionals for specific guidance.
-in</p>
-    </div>
-   
-    
-  </footer>
+  
+    </footer>
 </div>
-
+ 
 </body>
 </html>
