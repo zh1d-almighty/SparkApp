@@ -1,6 +1,7 @@
 package com.project.start.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+	private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
     
@@ -69,8 +70,9 @@ public class UserServiceImpl implements UserService {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(user.getEmail());
         mailMessage.setSubject("Complete Registration!");
-        mailMessage.setText ("Welcome to SparkEd "+ user.getName()+" " + user.getLastname()+ " to confirm your account, please click here : "
-                +"http://35.176.219.39:8080/confirm-account?token="+confirmationToken.getConfirmationToken());
+        mailMessage.setText("Welcome to SparkEd " + user.getName() + " " + user.getLastname() +
+                ". To confirm your account, please click here: " + 
+                "https://sparkeducation-production.up.railway.app" + "/confirm-account?token=" + confirmationToken.getConfirmationToken());
         emailService.sendEmail(mailMessage);
 
         System.out.println("Confirmation Token: " + confirmationToken.getConfirmationToken());
@@ -139,40 +141,40 @@ public class UserServiceImpl implements UserService {
         return roleRepository.save(role);
     }
 
-@Service
-public class ForgotPasswordService {
+    @Service
+    public class ForgotPasswordService {
 
-    @Autowired
-    private UserRepository userRepository;
+   
 
-    @Autowired
-    private ConfirmationTokenRepository confirmationTokenRepository;
+        @Autowired
+        private UserRepository userRepository;
 
-    @Autowired
-    private EmailService emailService;
+        @Autowired
+        private ConfirmationTokenRepository confirmationTokenRepository;
 
-    public void sendForgotPasswordEmail(String email) throws Exception {
-        User user = userRepository.findByEmail(email);
-        if (user == null) {
-            throw new Exception("No user found with email: " + email);
+        @Autowired
+        private EmailService emailService;
+
+        public void sendForgotPasswordEmail(String email) throws Exception {
+            User user = userRepository.findByEmail(email);
+            if (user == null) {
+                throw new Exception("No user found with email: " + email);
+            }
+
+            // Generate a token
+            ConfirmationToken token = new ConfirmationToken(user);
+            confirmationTokenRepository.save(token);
+
+            // Send reset link via email
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setTo(user.getEmail());
+            mailMessage.setSubject("Reset Password");
+            mailMessage.setText("Hello, \n\nTo reset your password, click the link below:\n" +
+            		"https://sparkeducation-production.up.railway.app" + "/reset-password?token=" + token.getConfirmationToken() +
+                    "\n\nIf you did not request this, please ignore this email.");
+            emailService.sendEmail(mailMessage);
         }
-
-        // Generate a token
-        ConfirmationToken token = new ConfirmationToken(user);
-        confirmationTokenRepository.save(token);
-
-        // Send reset link via email
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(user.getEmail());
-        mailMessage.setSubject("Reset Password");
-        mailMessage.setText("Hello, \n\nTo reset your password, click the link below:\n" +
-                "http://localhost:8080/reset-password?token=" + token.getConfirmationToken() +
-                "\n\nIf you did not request this, please ignore this email.");
-
-        emailService.sendEmail(mailMessage);
     }
- }
 }
-
 
 

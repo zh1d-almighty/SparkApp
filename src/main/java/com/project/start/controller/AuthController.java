@@ -67,6 +67,10 @@ public class AuthController {
     
     
     
+    
+  
+    
+    
     @GetMapping("/matchme")
     public String matchme() {
         return "matchme";
@@ -147,7 +151,20 @@ public class AuthController {
     	
        
         return "searchinstitution";
-    }
+    }  
+    
+	/*
+	 * @GetMapping("/reset-password") public String
+	 * displayResetPasswordPage(@RequestParam("token") String token, Model model) {
+	 * ConfirmationToken confirmationToken =
+	 * confirmationTokenRepository.findByConfirmationToken(token);
+	 * 
+	 * if (confirmationToken != null) { model.addAttribute("token", token); // Pass
+	 * token to the reset password return "reset-password"; } else {
+	 * model.addAttribute("error", "Invalid or expired token."); return "error"; //
+	 * Render an error page } }
+	 */
+    
   
     @Autowired
     private UserRepository userRepository;
@@ -155,17 +172,21 @@ public class AuthController {
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
 
-    @PostMapping("/reset-password")
-    public ResponseEntity<?> resetPassword(@RequestParam("token") String token, @RequestParam("password") String newPassword) {
-        ConfirmationToken confirmationToken = confirmationTokenRepository.findByConfirmationToken(token);
-        if (confirmationToken == null) {
-            return ResponseEntity.badRequest().body("Invalid or expired token.");
-        }
-
-        User user = confirmationToken.getUser();
-        user.setPassword(newPassword);  // You should encode the password here
-        userRepository.save(user);
-        
-        return ResponseEntity.ok("Password has been successfully reset.");
-    }
+//    @PostMapping("/reset-password")
+//    public ResponseEntity<?> resetPassword(@RequestParam("token") String token,
+//                                           @RequestParam("password") String newPassword) {
+//        ConfirmationToken confirmationToken = confirmationTokenRepository.findByConfirmationToken(token);
+//        if (confirmationToken == null) {
+//            return ResponseEntity.badRequest().body("Invalid or expired token.");
+//        }
+//
+//        User user = confirmationToken.getUser();
+//        user.setPassword(newPassword);  // You should encode the password here
+//        userRepository.save(user);
+//        
+//        // Delete the token to prevent reuse
+//        confirmationTokenRepository.delete(confirmationToken);
+//        
+//        return ResponseEntity.ok("Password has been successfully reset.");
+//    }
 }
