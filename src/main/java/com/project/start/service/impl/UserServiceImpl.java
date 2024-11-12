@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
         mailMessage.setSubject("Complete Registration!");
         mailMessage.setText("Welcome to SparkEd " + user.getName() + " " + user.getLastname() +
                 ". To confirm your account, please click here: " + 
-                "https://sparkeducation-production.up.railway.app" + "/confirm-account?token=" + confirmationToken.getConfirmationToken());
+                "https://sparkeducation-production.up.railway.app/confirm-account?token=" + confirmationToken.getConfirmationToken());
         emailService.sendEmail(mailMessage);
 
         System.out.println("Confirmation Token: " + confirmationToken.getConfirmationToken());
@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateProfile(UserDto userDto) {
         User user = new User();
-        user.setName(userDto.getName() + " " + userDto.getName());
+        user.setName(userDto.getName());
         user.setLastname(userDto.getLastname());
         user.setEmail(userDto.getEmail());
         user.setEmail(userDto.getAreaOfStudy());
@@ -170,7 +170,7 @@ public class UserServiceImpl implements UserService {
             mailMessage.setTo(user.getEmail());
             mailMessage.setSubject("Reset Password");
             mailMessage.setText("Hello, \n\nTo reset your password, click the link below:\n" +
-            		"https://sparkeducation-production.up.railway.app" + "/reset-password?token=" + token.getConfirmationToken() +
+            		"https://sparkeducation-production.up.railway.app/reset-password?token=" + token.getConfirmationToken() +
                     "\n\nIf you did not request this, please ignore this email.");
             emailService.sendEmail(mailMessage);
         }

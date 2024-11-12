@@ -1,263 +1,145 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>SparkEd | Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <style>
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
- 
-.fa:hover {
-    opacity: 0.7;
-}
- 
-.socialIcon{
-    display: flex;
-    justify-content: center;
-}
-
-.socialIcon a{
-    text-decoration: none;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 50%;
-}
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
- 
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
- 
-.fa-google {
-  background: #dd4b39;
-  color: white;
-}
- 
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
- 
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
- 
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
- 
-.fa-pinterest {
-  background: #cb2027;
-  color: white;
-}
- 
-.fa-snapchat-ghost {
-  background: #fffc00;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
- 
-.fa-skype {
-  background: #00aff0;
-  color: white;
-}
- 
-.fa-android {
-  background: #a4c639;
-  color: white;
-}
- 
-.fa-dribbble {
-  background: #ea4c89;
-  color: white;
-}
- 
-.fa-vimeo {
-  background: #45bbff;
-  color: white;
-}
- 
-.fa-tumblr {
-  background: #2c4762;
-  color: white;
-}
- 
-.fa-vine {
-  background: #00b489;
-  color: white;
-}
- 
-.fa-foursquare {
-  background: #45bbff;
-  color: white;
-}
- 
-.fa-stumbleupon {
-  background: #eb4924;
-  color: white;
-}
- 
-.fa-flickr {
-  background: #f40083;
-  color: white;
-}
- 
-.fa-yahoo {
-  background: #430297;
-  color: white;
-}
- 
-.fa-soundcloud {
-  background: #ff5500;
-  color: white;
-}
- 
-.fa-reddit {
-  background: #ff5700;
-  color: white;
-}
- 
-.fa-rss {
-  background: #ff6600;
-  color: white;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SparkEd | Programs</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    /* Social Media Icons */
+    .fa {
+        padding: 10px;
+        font-size: 24px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .fa:hover { opacity: 0.7; }
+    .fa-facebook { background: #3B5998; color: white; }
+    .fa-twitter { background: #55ACEE; color: white; }
+    .fa-instagram { background: #125688; color: white; }
+    .fa-youtube { background: #bb0000; color: white; }
+    .fa-linkedin { background: #007bb5; color: white; }
+    
+    /* Card Image Styling */
+    .card img {
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+    }
+    .socialIcon {
+        display: flex;
+        justify-content: center;
+    }
+    .socialIcon a {
+        text-decoration: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 50%;
+    }
 </style>
 </head>
-<body >
-<br>
-<br>
-<br>
-<div class="container">
-<div class="row">
-<br><br>
-      <div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
-      <div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
-   
-    <h4 style="margin-right: 85px;" >SparkEd "Ignites the spark of Higher Education"</h4></div>
-    <div class="col-sm-2"></div>
-</div>
-</div>
-<div class="container">
-</div>
-<div class="container">
- 
-  
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="@{index}">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
-            
-                 <li class="nav-item">
-                    <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/aboutus}">About us </a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/matchme}">APS Calculator</a>
+<body>
+
+<header class="container mt-4">
+    <div class="row align-items-center text-center text-md-start">
+        <div class="col-md-4">
+            <img th:src="@{/images/logo.png}" alt="SparkEd Logo" class="img-fluid" width="150">
+        </div>
+        <div class="col-sm-6">
+            <h1 style="margin-top: 85px; margin-left: 145px;"><b>SparkEd</b></h1>
+            <h4 style="margin-left: 85px;">SparkEd "Ignites the spark of Higher Education"</h4>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/index}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/matchme}">Match Me</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/searchinstitution}">Search Institution</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/resources}">Resources</a></li>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"   style="color:black;border-radius: 12px;" aria-current="page" th:href="@{/searchinstitution}">Search Institution</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/resources}">Resources</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/programs}">Programs</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link active"  style="color:black;border-radius: 12px;"  aria-current="page" th:href="@{/ratings}">Ratings</a>
-                </li>
-                   <li class="nav-item">
-                   <a class="btn btn-light" style=" border-color: #e7e7e7;border-radius: 12px;background-color: #ECECEC;"  aria-current="page" th:href="@{/login}">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-dark" style="border-radius: 12px;margin-left:5px;"  aria-current="page" th:href="@{/register}">Register</a>
-                </li>
-               
-            </ul>
-        </div>
-    </div>
-</nav>
-</div>
- 
- 
-<div class="container" >
-  <div class="row" style="margin-top: 85px;">
-      <div class="col-md-4 offset-md-4">
-         <div th:if="${param.error}">
-                <div class="alert alert-danger">Invalid Email or Password.</div>
-            </div>
-           
-          <div class="card">
-              
-              <div class="card-body">
-                  <form
-                          method="post"
-                          th:action="@{/login}"
-                          class="form-horizontal"
-                          role="form"
-                    >
-                        <div class="mb-3">
-                            <label for="username" class="control-label">Email: </label>
-                            <input type="text"
-                                   id="username"
-                                   name="username"
-                                   class="form-control"
-                                   placeholder="Email"
-                            />
-                        </div>
- 
-                        <div class="mb-3">
-    <label for="password" class="control-label">Password:</label>
-    <div class="input-group">
-        <input type="password"
-               id="password"
-               name="password"
-               class="form-control"
-               placeholder="Password"
-        />
-       <button type="button" onclick="togglePassword()" class="btn btn-outline-secondary"
-                style="height: 100%; padding: 0 10px;">
-            <i class="fa fa-eye" id="toggleIcon" style="font-size: 0.9em;"></i>
-        </button>
-        </button>
-    </div>
-</div>
- 
-                        <div class="mb-3">
-                            <button style="width:100%;" type="submit" class="btn btn-dark d-grid gap-2">Login</button>
-                            
-                              <span><a href="/" th:href="@{/forgotpassword}">Forgot Password?</a></span>
-                         
-                        </div>
-                    </form>
-                </div>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/programs}">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/ratings}">Ratings</a></li>
+                 
+                </ul>
             </div>
         </div>
+    </nav>
+</header>
+
+<main class="container mt-5">
+    <h2>Programs</h2>
+    <p>Search for higher education programs below:</p>
+    <div class="row mb-4">
+        <div class="col-sm-3">
+            <label for="search-keywords">Search Keywords:</label>
+            <input type="text" id="search-keywords" class="form-control" placeholder="e.g. Computer Science">
+        </div>
+        <div class="col-sm-3">
+            <label for="program-type">Program Type:</label>
+            <input type="text" id="program-type" class="form-control" placeholder="e.g. Bachelor's, Master's">
+        </div>
+        <div class="col-sm-3">
+            <label for="field-of-study">Field of Study:</label>
+            <input type="text" id="field-of-study" class="form-control" placeholder="e.g. Data Science">
+        </div>
     </div>
-</div>
-<div class="container">
-  <footer class="container mt-5">
+
+    <div class="row mb-4">
+        <div class="col-sm-3">
+            <label for="location">Location:</label>
+            <input type="text" id="location" class="form-control" placeholder="e.g. Cape Town">
+        </div>
+        <div class="col-sm-3">
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" class="form-control" placeholder="e.g. 3 years">
+        </div>
+        <div class="col-sm-3">
+            <label for="fees">Fees:</label>
+            <input type="text" id="fees" class="form-control" placeholder="e.g. R100,000">
+        </div>
+        <div class="col-sm-3 mt-4">
+            <button id="search-button" class="btn btn-primary">Search</button>
+            <button id="clear-button" class="btn btn-secondary">Clear</button>
+        </div>
+    </div>
+
+    <table class="table table-bordered search-results">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Institution</th>
+                <th>Duration</th>
+                <th>Fees</th>
+                <th>Rating</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6" class="text-center">Please enter search criteria to find programs.</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer class="container mt-5">
     <div class="row">
         <div class="col-md-4">
             <h5>About SparkED</h5>
@@ -276,8 +158,9 @@
         </div>
         <div class="col-md-4">
             <h5>Contact Us</h5>
-          <p>Phone: +27 (0)12 565 2417</p>
-        <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
+            <p>Email: <a href="mailto:sparkedignites@gmail.com">sparkedignites@gmail.com</a></p>
+            <p>Phone: +27 (0)12 565 2417</p>
+            <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
         </div>
     </div>
     <div class="socialIcon">
@@ -290,25 +173,72 @@
     <div class="text-center mt-3">
         <p>&copy; 2024 SparkED. All rights reserved.</p>
     </div>
-  
-    </footer>
-</div>
+</footer>
+
 <script>
-    function togglePassword() {
-        const passwordField = document.getElementById("password");
-        const toggleIcon = document.getElementById("toggleIcon");
-        
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            toggleIcon.classList.remove("fa-eye");
-            toggleIcon.classList.add("fa-eye-slash");
-        } else {
-            passwordField.type = "password";
-            toggleIcon.classList.remove("fa-eye-slash");
-            toggleIcon.classList.add("fa-eye");
-        }
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('search-button').addEventListener('click', function() {
+            const keywords = document.getElementById('search-keywords').value.toLowerCase();
+            const programType = document.getElementById('program-type').value.toLowerCase();
+            const fieldOfStudy = document.getElementById('field-of-study').value.toLowerCase();
+            const location = document.getElementById('location').value.toLowerCase();
+            const duration = document.getElementById('duration').value.toLowerCase();
+            const fees = document.getElementById('fees').value.toLowerCase();
+
+            const programs = [
+                { name: "Bachelor of Computer Science", institution: "University of Cape Town", location: "Cape Town", duration: "3 years", fees: "R80,000 - R100,000", rating: "★★★★☆", link: "https://www.uct.ac.za" },
+                { name: "Master of Business Administration", institution: "Stellenbosch University", location: "Stellenbosch", duration: "2 years", fees: "R150,000 - R200,000", rating: "★★★★☆", link: "https://www.sun.ac.za" },
+                { name: "Diploma in Civil Engineering", institution: "University of Johannesburg", location: "Johannesburg", duration: "2 years", fees: "R50,000 - R70,000", rating: "★★★☆☆", link: "https://www.uj.ac.za" },
+                // Add more program data here
+            ];
+
+            const filteredPrograms = programs.filter(program => {
+                return (
+                    (keywords === "" || program.name.toLowerCase().includes(keywords) || program.institution.toLowerCase().includes(keywords)) &&
+                    (programType === "" || program.name.toLowerCase().includes(programType)) &&
+                    (fieldOfStudy === "" || program.name.toLowerCase().includes(fieldOfStudy)) &&
+                    (location === "" || program.location.toLowerCase().includes(location)) &&
+                    (duration === "" || program.duration.toLowerCase().includes(duration)) &&
+                    (fees === "" || program.fees.toLowerCase().includes(fees))
+                );
+            });
+
+            const resultsTableBody = document.querySelector('.search-results tbody');
+            resultsTableBody.innerHTML = "";
+
+            if (filteredPrograms.length > 0) {
+                filteredPrograms.forEach(program => {
+                    const row = `<tr>
+                        <td>${program.name}</td>
+                        <td>${program.institution}</td>
+                        <td>${program.duration}</td>
+                        <td>${program.fees}</td>
+                        <td>${program.rating}</td>
+                        <td><a href="${program.link}" target="_blank" class="btn btn-primary">View Details</a></td>
+                    </tr>`;
+                    resultsTableBody.innerHTML += row;
+                });
+            } else {
+                resultsTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>No programs found matching your criteria.</td></tr>";
+            }
+        });
+
+        document.getElementById('clear-button').addEventListener('click', function() {
+            document.getElementById('search-keywords').value = "";
+            document.getElementById('program-type').value = "";
+            document.getElementById('field-of-study').value = "";
+            document.getElementById('location').value = "";
+            document.getElementById('duration').value = "";
+            document.getElementById('fees').value = "";
+
+            const resultsTableBody = document.querySelector('.search-results tbody');
+            resultsTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>Please enter search criteria to find programs.</td></tr>";
+        });
+    });
 </script>
- 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFZByFRiOn4JZrA2M/YaapmecMH60YY2H9zZ8zIMfB07jRMcF8ABdGF8Rm"
+        crossorigin="anonymous"></script>
 </body>
 </html>
