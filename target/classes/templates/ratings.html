@@ -4,7 +4,7 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>SparkEd | Ratings </title>
+    <title>SparkEd | Rating </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -217,31 +217,36 @@
       <div class="col-sm-4"> <img  th:src="@{/images/logo.png}" width="300" height="300"></div>
       <div class="col-sm-6"><h1 style="margin-top: 85px;margin-left: 145px;" ><b>SparkEd</b></h1>
    
-    <h4 style="margin-right: 85px;" >SparkEd "Ignites the spark of Higher Education"</h4></div>
+    <h4 style="margin-right: 85px;" >SparkEd "ignites the spark of Higher Education"</h4></div>
     <div class="col-sm-2"></div>
 </div>
 </div>
+<!-- Navigation bar for main links -->
 
-    <!-- navbar Section -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
-<div class="container-fluid">
-			<a class="navbar-brand navbar navbar-expand-lg navbar-light bg-light mt-4" th:href="@{#}">Home</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-		<ul class="navbar-nav ms-auto">
-		<li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About Us</a></li>
-		<li class="nav-item"><a class="nav-link" th:href="@{/matchme}">APS Calculator</a></li>
-		<li class="nav-item"><a class="nav-link" th:href="@{/searchinstitution}">Search Institution</a></li>
-		<li class="nav-item"><a class="nav-link" th:href="@{/resources}">Resources</a></li>
-		<li class="nav-item"><a class="nav-link" th:href="@{/programs}">Programs</a></li>
-		<li class="nav-item"><a class="nav-link" th:href="@{/ratings}">Ratings</a></li>                      
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: black;">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <!-- Navigation links with Thymeleaf expressions (th:href) for dynamic routing -->
+                  <li class="nav-item"><a class="nav-link active" style="color:black; border-radius: 12px;" th:href="@{/aboutus}">About us</a></li>
+                  <li class="nav-item"><a class="nav-link active" style="color:black; border-radius: 12px;" th:href="@{/matchme}">Match Me</a></li>
+                  <li class="nav-item"><a class="nav-link active" style="color:black; border-radius: 12px;" th:href="@{/searchinstitution}">Search Institution</a></li>
+                  <li class="nav-item"><a class="nav-link active" style="color:black; border-radius: 12px;" th:href="@{/resources}">Resources</a></li>
+                  <li class="nav-item"><a class="nav-link active" style="color:black; border-radius: 12px;" th:href="@{/programs}">Programs</a></li>
+                  <li class="nav-item"><a class="nav-link active" style="color:black; border-radius: 12px;" th:href="@{/ratings}">Ratings</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+</div>
+
     </div>
 
     <!-- Rating Section -->
@@ -292,7 +297,7 @@
               </div>
               <div class="col-md-4">
                   <h5>Contact Us</h5>
-                  <p>Email: <a href="mailto:sparkedignites@gmail.com">sparkedignites@gmail.com</a></p>
+                  <p>Email: <a href="mailto:support@sparked.com">support@sparked.com</a></p>
                   <p>Phone: +27 (0)12 565 2417</p>
                   <p>Address: Suit 3, Menlo office park, Sprite ave, Centurion, 0144</p>
               </div>
