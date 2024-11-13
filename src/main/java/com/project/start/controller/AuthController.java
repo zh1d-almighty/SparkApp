@@ -10,16 +10,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.project.start.dto.ProgramsDto;
 import com.project.start.dto.UserDto;
 import com.project.start.entity.ConfirmationToken;
 import com.project.start.entity.Institution;
-import com.project.start.entity.Programs;
 import com.project.start.entity.User;
 import com.project.start.repository.ConfirmationTokenRepository;
 import com.project.start.repository.UserRepository;
@@ -60,10 +54,10 @@ public class AuthController {
         return "searchinstitution";
     }
     
-    //@GetMapping("/updateProfile")
-    //public String updateProfile() {
-     //   return "updateProfile";
-    //}
+   @GetMapping("/updateProfile")
+   public String updateProfile() {
+        return "updateProfile";
+    }
     
     
     
@@ -127,6 +121,35 @@ public class AuthController {
         userService.updateProfile(user);
         return "redirect:/users?success";
     }
+    
+    
+    
+    @PostMapping("/login")
+    public String login(@RequestParam("email") String email, 
+                        @RequestParam("password") String password, 
+                        Model model) {
+        User existingUser = userService.findByEmail(email);
+
+        if (existingUser == null) {
+            // No user with this email
+        	model.addAttribute("error", "No account found with that email.");
+        	return "redirect:/login?error=true";  // Return to login page with error message
+        } else if (!existingUser.getPassword().equals(password)) {
+            // User exists, but password is incorrect
+            model.addAttribute("error", "Invalid password.");
+            return "login";  // Return to login page with error message
+        }
+
+        // Successful login
+        return "redirect:/index";  // Redirect to the home page
+    }
+    
+    
+    
+    
+    
+    
+    
 
     
     @GetMapping(value="/confirm-account")
@@ -176,7 +199,7 @@ public class AuthController {
     private ConfirmationTokenRepository confirmationTokenRepository;
 
   @PostMapping("/reset-password")
-  public ResponseEntity<?> resetPassword(@RequestParam("token") String token,
+  public ResponseEntity<?> resetPassword(@RequestParam String token,
                                            @RequestParam("password") String newPassword) {
         ConfirmationToken confirmationToken = confirmationTokenRepository.findByConfirmationToken(token);
         if (confirmationToken == null) {
