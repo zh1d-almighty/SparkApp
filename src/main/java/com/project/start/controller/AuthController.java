@@ -20,8 +20,11 @@ import com.project.start.repository.UserRepository;
 import com.project.start.service.ProgramService;
 import com.project.start.service.SearchInstitutionService;
 import com.project.start.service.UserService;
-
 import java.util.List;
+import jakarta.servlet.http.HttpSession; 
+
+
+
 
 @Controller
 public class AuthController {
@@ -61,10 +64,6 @@ public class AuthController {
     
     
     
-    
-  
-    
-    
     @GetMapping("/matchme")
     public String matchme() {
         return "matchme";
@@ -93,7 +92,18 @@ public class AuthController {
         UserDto user = new UserDto();
         model.addAttribute("user", user);
         return "register";
+    } 
+    
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();  // Invalidate the session to log the user out
+        return "redirect:/login?logout=true";  // Redirect to the login page with a message
     }
+    
+    
+    
+    
+    
 
     // handler method to handle register user form submit request
     @PostMapping("/register/save")
@@ -145,12 +155,6 @@ public class AuthController {
     }
     
     
-    
-    
-    
-    
-    
-
     
     @GetMapping(value="/confirm-account")
     public ResponseEntity<?> confirmUserAccount(@RequestParam("token")String confirmationToken) {

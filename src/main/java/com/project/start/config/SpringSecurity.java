@@ -33,7 +33,7 @@ public class SpringSecurity {
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers("/aboutus/**").permitAll()
-                                .requestMatchers("/forgotpassword/**").authenticated()
+                                .requestMatchers("/forgotpassword/**").permitAll()
                                 .requestMatchers("/searchinstitution/**").authenticated()
                                 .requestMatchers("/confirm-account/**").permitAll()
                                 .requestMatchers("/matchme/**").authenticated()                               
