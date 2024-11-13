@@ -169,7 +169,7 @@ public class UserServiceImpl implements UserService {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(user.getEmail());
             mailMessage.setSubject("Reset Password");
-            mailMessage.setText("Hello, \n\nTo reset your password, click the link below:\n" +
+            mailMessage.setText("Hello,  \n\nTo reset your password, click the link below:\n" +
             		"https://sparkeducation-production.up.railway.app/reset-password?token=" + token.getConfirmationToken() +
                     "\n\nIf you did not request this, please ignore this email.");
             emailService.sendEmail(mailMessage);
