@@ -72,12 +72,13 @@ public class UserServiceImpl implements UserService {
         mailMessage.setSubject("Complete Registration!");
         mailMessage.setText("Welcome to SparkEd " + user.getName() + " " + user.getLastname() +
                 ". To confirm your account, please click here: " + 
-                "https://sparkeducation-production.up.railway.app/confirm-account?token=" + confirmationToken.getConfirmationToken());
+                "https://sparkeducation.up.railway.app/confirm-account?token=" + confirmationToken.getConfirmationToken());
         emailService.sendEmail(mailMessage);
 
         System.out.println("Confirmation Token: " + confirmationToken.getConfirmationToken());
 
-        return;
+        return; 
+    
     }
     
     @Override
@@ -170,7 +171,7 @@ public class UserServiceImpl implements UserService {
             mailMessage.setTo(user.getEmail());
             mailMessage.setSubject("Reset Password");
             mailMessage.setText("Hello,  \n\nTo reset your password, click the link below:\n" +
-            		"https://sparkeducation-production.up.railway.app/reset-password?token=" + token.getConfirmationToken() +
+            		"https://sparkeducation.up.railway.app/reset-password?token=" + token.getConfirmationToken() +
                     "\n\nIf you did not request this, please ignore this email.");
             emailService.sendEmail(mailMessage);
         }
