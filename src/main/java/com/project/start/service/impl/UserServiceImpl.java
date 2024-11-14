@@ -157,6 +157,9 @@ public class UserServiceImpl implements UserService {
         private EmailService emailService;
 
         public void sendForgotPasswordEmail(String email) throws Exception {
+        	
+        	System.out.println("Attempting to send password reset email to: " + email);
+        	
             User user = userRepository.findByEmail(email);
             if (user == null) {
                 throw new Exception("No user found with email: " + email);
@@ -171,9 +174,11 @@ public class UserServiceImpl implements UserService {
             mailMessage.setTo(user.getEmail());
             mailMessage.setSubject("Reset Password");
             mailMessage.setText("Hello,  \n\nTo reset your password, click the link below:\n" +
-            		"https://sparkeducation.up.railway.app/reset-password?token=" + token.getConfirmationToken() +
+                    "https://sparkeducation.up.railway.app/resetpassword/token?token=" + token.getConfirmationToken() +
                     "\n\nIf you did not request this, please ignore this email.");
             emailService.sendEmail(mailMessage);
+            
+            System.out.println("Password reset email sent to: " + email); // Log success
         }
     }
 }

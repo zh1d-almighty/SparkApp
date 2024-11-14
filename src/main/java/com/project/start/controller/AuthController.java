@@ -20,6 +20,8 @@ import com.project.start.repository.UserRepository;
 import com.project.start.service.ProgramService;
 import com.project.start.service.SearchInstitutionService;
 import com.project.start.service.UserService;
+import com.project.start.service.impl.UserServiceImpl.ForgotPasswordService;
+
 import java.util.List;
 import jakarta.servlet.http.HttpSession; 
 
@@ -47,10 +49,10 @@ public class AuthController {
         return "login";
     }
     
-    @GetMapping("/forgotpassword")
-    public String forgotpassword() {
-        return "forgotpassword";
-    }
+	
+	  @GetMapping("/forgotpassword") public String forgotpassword() { return
+	  "forgotpassword"; }
+	 
     
     @GetMapping("/searchinstitution")
     public String searchinstitution() {
@@ -82,10 +84,21 @@ public class AuthController {
     public String programs(){
         return "programs";
     }
+    
     @GetMapping("/resources")
     public String resources(){
         return "resources";
     }
+    
+    @GetMapping
+    ("/resetpassword")
+    public String resetpassword() {
+        return "resetpassword";
+    }
+    
+    
+    
+    
     // handler method to handle user registration request
     @GetMapping("register")
     public String showRegistrationForm(Model model){
@@ -156,6 +169,33 @@ public class AuthController {
     
     
     
+    
+    @Autowired
+    private ForgotPasswordService forgotPasswordService;
+
+    @PostMapping("/forgot-password")
+    public String processForgotPassword(@RequestParam("email") String email, Model model) {
+        System.out.println("Processing forgot password for email: " + email);  // Add logging
+        try {
+            forgotPasswordService.sendForgotPasswordEmail(email);
+            model.addAttribute("message", "Password reset email sent!");
+            return "forgotpassword";  // You can return the same page with a success message
+        } catch (Exception e) {
+            model.addAttribute("error", "Error: " + e.getMessage());
+            return "forgotpassword";  // Return the same page with an error message
+        }
+    }
+
+
+    @GetMapping("/forgot-password")
+    public String showForgotPasswordPage() {
+        return "forgotpassword"; // Matches the name of your template without the .html extension
+    }
+
+    
+  
+    
+    
     @GetMapping(value="/confirm-account")
     public ResponseEntity<?> confirmUserAccount(@RequestParam("token")String confirmationToken) {
         return userService.confirmEmail(confirmationToken);
@@ -181,19 +221,20 @@ public class AuthController {
     }  
     
 	
-	  @GetMapping("/reset-password") public String
-	  displayResetPasswordPage(@RequestParam("token") String token, Model model) {
-	  ConfirmationToken confirmationToken =
-	  confirmationTokenRepository.findByConfirmationToken(token);
-	  
-	  if (confirmationToken != null) { model.addAttribute("token", token); // Pass token to the reset password 
-	  return "reset-password"; 
-	  } else {
-	  model.addAttribute("error", "Invalid or expired token."); 
-	  	return "error";  //Render an error page
-	  	} 
-	  }
-	 
+    @GetMapping("/resetpassword/token")
+    public String displayResetPasswordPage(@RequestParam("token") String token, Model model) {
+        ConfirmationToken confirmationToken = confirmationTokenRepository.findByConfirmationToken(token);
+
+        if (confirmationToken != null) {
+            model.addAttribute("token", token); // Pass token to the reset password page
+            return "resetpassword";
+        } else {
+            model.addAttribute("error", "Invalid or expired token.");
+            return "error";  // Render an error page
+        }
+    }
+
+   
     
   
     @Autowired
@@ -202,19 +243,21 @@ public class AuthController {
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
 
-  @PostMapping("/reset-password")
-  public ResponseEntity<?> resetPassword(@RequestParam String token,
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestParam String token,
                                            @RequestParam("password") String newPassword) {
         ConfirmationToken confirmationToken = confirmationTokenRepository.findByConfirmationToken(token);
         if (confirmationToken == null) {
-            return ResponseEntity.badRequest().body("Invalid or expired token.");        }
+            return ResponseEntity.badRequest().body("Invalid or expired token.");
+        }
 
         User user = confirmationToken.getUser();
         user.setPassword(newPassword);  // You should encode the password here
         userRepository.save(user);
-        // Delete the token to prevent reuse
-  confirmationTokenRepository.delete(confirmationToken);
-        
+
+        confirmationTokenRepository.delete(confirmationToken);  // Prevent token reuse
+
         return ResponseEntity.ok("Password has been successfully reset.");
     }
+
 }

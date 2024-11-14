@@ -34,6 +34,7 @@ public class SpringSecurity {
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers("/aboutus/**").permitAll()
                                 .requestMatchers("/forgotpassword/**").permitAll()
+                                .requestMatchers("/forgot-password").permitAll()
                                 .requestMatchers("/searchinstitution/**").authenticated()
                                 .requestMatchers("/confirm-account/**").permitAll()
                                 .requestMatchers("/matchme/**").authenticated()                               
@@ -41,6 +42,7 @@ public class SpringSecurity {
                                 .requestMatchers("/institutions/**").authenticated()
                                 .requestMatchers("/ratings/**").authenticated()
                                 .requestMatchers("/resources/**").authenticated()
+                                
                                 .requestMatchers("/users/**").hasRole("ADMIN")
                                 
                                
