@@ -22,6 +22,14 @@
         border-radius: 50%;
         display: inline-block;
     }
+    .search-results {
+        display: none;
+    }
+    footer .row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
     .fa:hover { opacity: 0.7; }
     .fa-facebook { background: #3B5998; color: white; }
     .fa-twitter { background: #55ACEE; color: white; }
@@ -71,7 +79,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/matchme}">Match Me</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/matchme}">APS Calculator</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/searchinstitution}">Search Institution</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/resources}">Resources</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/programs}">Programs</a></li>
@@ -87,33 +95,21 @@
     <h2>Programs</h2>
     <p>Search for higher education programs below:</p>
     <div class="row mb-4">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <label for="search-keywords">Search Keywords:</label>
             <input type="text" id="search-keywords" class="form-control" placeholder="e.g. Computer Science">
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <label for="program-type">Program Type:</label>
             <input type="text" id="program-type" class="form-control" placeholder="e.g. Bachelor's, Master's">
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <label for="field-of-study">Field of Study:</label>
             <input type="text" id="field-of-study" class="form-control" placeholder="e.g. Data Science">
         </div>
     </div>
 
     <div class="row mb-4">
-        <div class="col-sm-3">
-            <label for="location">Location:</label>
-            <input type="text" id="location" class="form-control" placeholder="e.g. Cape Town">
-        </div>
-        <div class="col-sm-3">
-            <label for="duration">Duration:</label>
-            <input type="text" id="duration" class="form-control" placeholder="e.g. 3 years">
-        </div>
-        <div class="col-sm-3">
-            <label for="fees">Fees:</label>
-            <input type="text" id="fees" class="form-control" placeholder="e.g. R100,000">
-        </div>
         <div class="col-sm-3 mt-4">
             <button id="search-button" class="btn btn-primary">Search</button>
             <button id="clear-button" class="btn btn-secondary">Clear</button>
@@ -148,9 +144,9 @@
         <div class="col-md-4">
             <h5>Quick Links</h5>
             <ul class="list-unstyled">
-                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/index}">Home</a></li>
                 <li><a th:href="@{/aboutus}">About Us</a></li>
-                <li><a th:href="@{/matchme}">Match Me</a></li>
+                <li><a th:href="@{/matchme}">APS Calculator</a></li>
                 <li><a th:href="@{/searchinstitution}">Search Institutions</a></li>
                 <li><a th:href="@{/programs}">Programs</a></li>
                 <li><a th:href="@{/ratings}">Ratings</a></li>
@@ -181,33 +177,38 @@
             const keywords = document.getElementById('search-keywords').value.toLowerCase();
             const programType = document.getElementById('program-type').value.toLowerCase();
             const fieldOfStudy = document.getElementById('field-of-study').value.toLowerCase();
-            const location = document.getElementById('location').value.toLowerCase();
-            const duration = document.getElementById('duration').value.toLowerCase();
-            const fees = document.getElementById('fees').value.toLowerCase();
 
             const programs = [
-                { name: "Bachelor of Computer Science", institution: "University of Cape Town", location: "Cape Town", duration: "3 years", fees: "R80,000 - R100,000", rating: "★★★★☆", link: "https://www.uct.ac.za" },
-                { name: "Master of Business Administration", institution: "Stellenbosch University", location: "Stellenbosch", duration: "2 years", fees: "R150,000 - R200,000", rating: "★★★★☆", link: "https://www.sun.ac.za" },
-                { name: "Diploma in Civil Engineering", institution: "University of Johannesburg", location: "Johannesburg", duration: "2 years", fees: "R50,000 - R70,000", rating: "★★★☆☆", link: "https://www.uj.ac.za" },
-                // Add more program data here
-            ];
+    { name: "Bachelor of Computer Science", institution: "University of Cape Town", location: "Cape Town", duration: "3 years", fees: "R80,000 - R100,000", rating: "★★★★☆", link: "https://www.uct.ac.za" },
+    { name: "Master of Business Administration", institution: "Stellenbosch University", location: "Stellenbosch", duration: "2 years", fees: "R150,000 - R200,000", rating: "★★★★☆", link: "https://www.sun.ac.za" },
+    { name: "Diploma in Civil Engineering", institution: "University of Johannesburg", location: "Johannesburg", duration: "2 years", fees: "R50,000 - R70,000", rating: "★★★☆☆", link: "https://www.uj.ac.za" },
+    { name: "Bachelor of Law (LLB)", institution: "University of Pretoria", location: "Pretoria", duration: "4 years", fees: "R90,000 - R120,000", rating: "★★★★☆", link: "https://www.up.ac.za" },
+    { name: "Bachelor of Commerce in Finance", institution: "University of the Witwatersrand", location: "Johannesburg", duration: "3 years", fees: "R85,000 - R110,000", rating: "★★★★☆", link: "https://www.wits.ac.za" },
+    { name: "Bachelor of Education", institution: "University of South Africa", location: "Pretoria", duration: "4 years", fees: "R40,000 - R60,000", rating: "★★★☆☆", link: "https://www.unisa.ac.za" },
+    { name: "Bachelor of Nursing", institution: "Nelson Mandela University", location: "Port Elizabeth", duration: "4 years", fees: "R70,000 - R90,000", rating: "★★★★☆", link: "https://www.mandela.ac.za" },
+    { name: "Bachelor of Engineering in Mechanical Engineering", institution: "Cape Peninsula University of Technology", location: "Cape Town", duration: "4 years", fees: "R95,000 - R130,000", rating: "★★★★☆", link: "https://www.cput.ac.za" },
+    { name: "Diploma in Graphic Design", institution: "Vega School", location: "Johannesburg", duration: "3 years", fees: "R60,000 - R85,000", rating: "★★★☆☆", link: "https://www.vegaschool.com" },
+    { name: "Bachelor of Arts in Communication", institution: "North-West University", location: "Potchefstroom", duration: "3 years", fees: "R50,000 - R75,000", rating: "★★★★☆", link: "https://www.nwu.ac.za" },
+    { name: "Advanced Diploma in Information Technology", institution: "Durban University of Technology", location: "Durban", duration: "2 years", fees: "R55,000 - R70,000", rating: "★★★☆☆", link: "https://www.dut.ac.za" },
+    { name: "Master of Public Health", institution: "University of KwaZulu-Natal", location: "Durban", duration: "2 years", fees: "R120,000 - R150,000", rating: "★★★★☆", link: "https://www.ukzn.ac.za" },
+    { name: "Bachelor of Social Work", institution: "University of Zululand", location: "KwaDlangezwa", duration: "4 years", fees: "R65,000 - R85,000", rating: "★★★☆☆", link: "https://www.unizulu.ac.za" },
+    { name: "Bachelor of Science in Agriculture", institution: "University of Limpopo", location: "Polokwane", duration: "4 years", fees: "R70,000 - R90,000", rating: "★★★★☆", link: "https://www.ul.ac.za" },
+    { name: "Diploma in Marketing Management", institution: "IMM Graduate School", location: "Johannesburg", duration: "3 years", fees: "R60,000 - R80,000", rating: "★★★☆☆", link: "https://www.imm.ac.za" },
+    { name: "Higher Certificate in Information Technology", institution: "Richfield Graduate Institute of Technology", location: "Johannesburg", duration: "1 year", fees: "R30,000 - R40,000", rating: "★★★☆☆", link: "https://www.richfield.ac.za" },
+    { name: "Bachelor of Business Administration", institution: "Richfield Graduate Institute of Technology", location: "Johannesburg", duration: "3 years", fees: "R60,000 - R80,000", rating: "★★★☆☆", link: "https://www.richfield.ac.za" },
+    { name: "Diploma in Computer Systems Engineering", institution: "Richfield Graduate Institute of Technology", location: "Johannesburg", duration: "3 years", fees: "R70,000 - R90,000", rating: "★★★☆☆", link: "https://www.richfield.ac.za" },
+    { name: "Bachelor of Science in Information Technology", institution: "Richfield Graduate Institute of Technology", location: "Johannesburg", duration: "3 years", fees: "R80,000 - R100,000", rating: "★★★☆☆", link: "https://www.richfield.ac.za" },
+    { name: "Advanced Diploma in Management", institution: "Richfield Graduate Institute of Technology", location: "Johannesburg", duration: "1 year", fees: "R35,000 - R50,000", rating: "★★★☆☆", link: "https://www.richfield.ac.za" }
+];
 
-            const filteredPrograms = programs.filter(program => {
-                return (
-                    (keywords === "" || program.name.toLowerCase().includes(keywords) || program.institution.toLowerCase().includes(keywords)) &&
-                    (programType === "" || program.name.toLowerCase().includes(programType)) &&
-                    (fieldOfStudy === "" || program.name.toLowerCase().includes(fieldOfStudy)) &&
-                    (location === "" || program.location.toLowerCase().includes(location)) &&
-                    (duration === "" || program.duration.toLowerCase().includes(duration)) &&
-                    (fees === "" || program.fees.toLowerCase().includes(fees))
-                );
-            });
-
-            const resultsTableBody = document.querySelector('.search-results tbody');
+            const resultsTable = document.querySelector('.search-results');
+            const resultsTableBody = resultsTable.querySelector('tbody');
             resultsTableBody.innerHTML = "";
 
-            if (filteredPrograms.length > 0) {
-                filteredPrograms.forEach(program => {
+            // Show the table if no input is provided
+            if (keywords === "" && programType === "" && fieldOfStudy === "") {
+                resultsTable.style.display = "table";
+                programs.forEach(program => {
                     const row = `<tr>
                         <td>${program.name}</td>
                         <td>${program.institution}</td>
@@ -219,7 +220,32 @@
                     resultsTableBody.innerHTML += row;
                 });
             } else {
-                resultsTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>No programs found matching your criteria.</td></tr>";
+                // Filter and display results based on the input
+                const filteredPrograms = programs.filter(program => {
+                    return (
+                        (keywords === "" || program.name.toLowerCase().includes(keywords) || program.institution.toLowerCase().includes(keywords)) &&
+                        (programType === "" || program.name.toLowerCase().includes(programType)) &&
+                        (fieldOfStudy === "" || program.name.toLowerCase().includes(fieldOfStudy))
+                    );
+                });
+
+                if (filteredPrograms.length > 0) {
+                    filteredPrograms.forEach(program => {
+                        const row = `<tr>
+                            <td>${program.name}</td>
+                            <td>${program.institution}</td>
+                            <td>${program.duration}</td>
+                            <td>${program.fees}</td>
+                            <td>${program.rating}</td>
+                            <td><a href="${program.link}" target="_blank" class="btn btn-primary">View Details</a></td>
+                        </tr>`;
+                        resultsTableBody.innerHTML += row;
+                    });
+                } else {
+                    resultsTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>No programs found matching your criteria.</td></tr>";
+                }
+
+                resultsTable.style.display = "table";
             }
         });
 
@@ -227,12 +253,10 @@
             document.getElementById('search-keywords').value = "";
             document.getElementById('program-type').value = "";
             document.getElementById('field-of-study').value = "";
-            document.getElementById('location').value = "";
-            document.getElementById('duration').value = "";
-            document.getElementById('fees').value = "";
 
             const resultsTableBody = document.querySelector('.search-results tbody');
             resultsTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>Please enter search criteria to find programs.</td></tr>";
+            document.querySelector('.search-results').style.display = "none";
         });
     });
 </script>
