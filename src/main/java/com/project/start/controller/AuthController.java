@@ -179,7 +179,7 @@ public class AuthController {
         try {
             forgotPasswordService.sendForgotPasswordEmail(email);
             model.addAttribute("message", "Password reset email sent!");
-            return "forgotpassword";  // You can return the same page with a success message
+            return "forgotpassword";  // return the same page with a success message
         } catch (Exception e) {
             model.addAttribute("error", "Error: " + e.getMessage());
             return "forgotpassword";  // Return the same page with an error message
@@ -189,17 +189,25 @@ public class AuthController {
 
     @GetMapping("/forgot-password")
     public String showForgotPasswordPage() {
-        return "forgotpassword"; // Matches the name of your template without the .html extension
+        return "forgotpassword"; // Matches the name of  template without the .html extension
     }
 
     
   
     
     
-    @GetMapping(value="/confirm-account")
-    public ResponseEntity<?> confirmUserAccount(@RequestParam("token")String confirmationToken) {
-        return userService.confirmEmail(confirmationToken);
+    @GetMapping("/confirm-account")
+    public String confirmUserAccount(@RequestParam("token") String confirmationToken, Model model) {
+        ResponseEntity<?> response = userService.confirmEmail(confirmationToken);
+        if (response.getStatusCode().is2xxSuccessful()) {
+            model.addAttribute("successMessage", "Account successfully confirmed! Redirecting to the home page...");
+            return "redirect:/index"; // Redirects to the index page
+        } else {
+            model.addAttribute("errorMessage", "Confirmation failed or token is invalid.");
+            return "error"; // Displays an error page or message
+        }
     }
+
     
     @GetMapping("/users")
     public String listRegisteredUsers(Model model){
@@ -252,7 +260,7 @@ public class AuthController {
         }
 
         User user = confirmationToken.getUser();
-        user.setPassword(newPassword);  // You should encode the password here
+        user.setPassword(newPassword);  
         userRepository.save(user);
 
         confirmationTokenRepository.delete(confirmationToken);  // Prevent token reuse
