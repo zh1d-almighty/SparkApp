@@ -417,12 +417,14 @@
                     resultItem.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
 
                     resultItem.innerHTML = `
-                        <img src="${institution.logo}" alt="${institution.name}" style="width: 50px; float: left; margin-right: 20px;">
+                       
                         <h4>${institution.name}</h4>
                         <p>Location: ${institution.location}</p>
                         <p>${institution.description}</p>
                         <p>User Rating: ${institution.rating}</p>
                     `;
+                    
+                    
 
                     resultsList.appendChild(resultItem);
                 });
@@ -555,7 +557,7 @@
           <div class="col-md-4">
               <h5>Quick Links</h5>
               <ul class="list-unstyled">
-                  <li><a th:href="@{/}">Home</a></li>
+                  <li><a th:href="@{/index}">Home</a></li>
                   <li><a th:href="@{/aboutus}">About Us</a></li>
                   <li><a th:href="@{/matchme}">Match Me</a></li>
                   <li><a th:href="@{/searchinstitution}">Search Institutions</a></li>
