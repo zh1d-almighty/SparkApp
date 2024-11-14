@@ -35,6 +35,7 @@ public class SpringSecurity {
                                 .requestMatchers("/aboutus/**").permitAll()
                                 .requestMatchers("/forgotpassword/**").permitAll()
                                 .requestMatchers("/forgot-password").permitAll()
+                                .requestMatchers("/resetpassword/token").permitAll()
                                 .requestMatchers("/searchinstitution/**").authenticated()
                                 .requestMatchers("/confirm-account/**").permitAll()
                                 .requestMatchers("/matchme/**").authenticated()                               
